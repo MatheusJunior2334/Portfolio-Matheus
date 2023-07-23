@@ -1,0 +1,70 @@
+@import '../../page.module.scss';
+
+$header-hover-color: #1AFFC8;
+
+#header {
+    position: fixed;
+    width: 100%;
+    height: auto;
+    top: 0;
+    background-color: $header-bg-color;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    z-index: 2;
+
+    .logo {
+        font-family: $logo-font;
+        font-size: 40px;
+        font-weight: normal;
+        color: $text-primary;
+    }
+
+    .nav_options ul {
+        display: flex;
+        color: $text-primary;
+        list-style: none;
+        font-size: 20px;
+        column-gap: 30px;
+
+        li {
+            color: $text-primary;
+
+            span {
+                position: relative;
+                line-height: 1.08;
+                white-space: nowrap;
+                transition: all 0.8s;
+                cursor: pointer;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    width: auto;
+                    height: 2px;
+                    bottom: -6px;
+                    left: 0;
+                    right: 0;
+                    opacity: 0;
+                    background-color: $header-hover-color;
+                    border-radius: 0px 0px 4px 4px;
+                    transform-origin: left center;
+                    transform: scaleX(0);
+                    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
+                    visibility: hidden;
+                }
+            }
+
+            &:hover {
+                color: $header-hover-color;
+
+                span::before {
+                    transform: scaleX(1);
+                    visibility: visible;
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}

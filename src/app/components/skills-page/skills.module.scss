@@ -1,0 +1,28 @@
+@import '../../page.module.scss';
+
+#skills {
+    width: 100%;
+    margin-top: 90px;
+    padding: 5px 0 30px 0;
+    border-radius: 50px;
+    background: linear-gradient(180deg, #4D4646 0.01%, rgba(8, 175, 255, 0.50) 100%);
+
+    h2 {
+        font-size: 40px;
+        font-weight: normal;
+        color: $text-primary;
+        text-align: center;
+        padding: 25px 0;
+    }
+
+    .technologies {
+        width: 85%;
+        display: grid;
+        justify-items: center;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: auto;
+        row-gap: 40px;
+        margin: auto;
+        margin-top: 15px;
+    }
+}
