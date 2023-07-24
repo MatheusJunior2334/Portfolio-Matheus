@@ -30,11 +30,11 @@ export default function Header() {
             const currentWidth = window.innerWidth;
 
             if (currentWidth >= 1000) {
-                setMenuOpen(false);
+                setMenuOpen(true);
             }
-
+            
             //Update the width size value if there's a change
-            else if (currentWidth !== windowWidth) {
+            if (currentWidth !== windowWidth) {
                 setWindowWidth(currentWidth);
             }
         }
