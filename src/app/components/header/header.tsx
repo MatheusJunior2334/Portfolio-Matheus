@@ -22,22 +22,31 @@ export default function Header() {
         setMenuOpen(!menuOpen);
     }
 
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
     useEffect(() => {
         //Function to verify if the screen is smaller than 1000px
         const handleWindowSizeChange = () => {
-            if (window.innerWidth >= 1000) {
+            const currentWidth = window.innerWidth;
+
+            if (currentWidth >= 1000) {
                 setMenuOpen(false);
+            }
+
+            //Update the width size value if there's a change
+            if (currentWidth !== windowWidth) {
+                setWindowWidth(currentWidth);
             }
         }
 
         //Add the listener event to verify the window size change
-        window.addEventListener('resize', handleClickMenu);
+        window.addEventListener('resize', handleWindowSizeChange);
 
         //Remove the listener event when the container is closed
         return () => {
-            window.removeEventListener('resize', handleClickMenu);
+            window.removeEventListener('resize', handleWindowSizeChange);
         }
-    }, []);
+    }, [windowWidth]);
 
 
     //Code to shine button when reach a specified page container
