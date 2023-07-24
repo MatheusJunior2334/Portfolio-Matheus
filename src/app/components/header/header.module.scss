@@ -2,32 +2,40 @@
 
 $header-hover-color: #1AFFC8;
 
+
 #header {
     position: fixed;
     width: 100%;
     height: auto;
     top: 0;
     background-color: $header-bg-color;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 5%;
-    z-index: 2;
+    z-index: 1;
 
     .logo {
         font-size: 40px;
         font-weight: normal;
         color: $text-primary;
+        z-index: 3;
+
+        @media only screen and (max-width: 535px) {
+            font-size: 34px;
+        }
     }
 
     .nav_options ul {
+        @include text-primary-font;
         display: flex;
         color: $text-primary;
         list-style: none;
-        font-size: 20px;
         column-gap: 30px;
 
         li {
+            position: relative;
             color: $text-primary;
 
             span {
@@ -55,7 +63,7 @@ $header-hover-color: #1AFFC8;
                 }
             }
 
-            &:hover {
+            &:hover, .active {
                 color: $header-hover-color;
 
                 span::before {
@@ -63,6 +71,58 @@ $header-hover-color: #1AFFC8;
                     visibility: visible;
                     opacity: 1;
                 }
+            }
+        }
+
+        @media only screen and (max-width: 1000px) {
+            position: fixed;
+            width: 100vw;
+            height: calc(100% - 88px);
+            overflow-y: auto;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            top: 88px;
+            left: 0;
+            column-gap: 0;
+            background-color: $menu-bg-color;
+            transition: transform 1s;
+            transform: translateX(200%) rotate(90deg);
+            z-index: 2;
+
+            @media only screen and (max-width: 535px) {
+                height: calc(100% - 80px);
+                top: 80px;
+            }
+
+            li {
+                position: relative;
+                margin: 25px 0;
+
+                &:first-child {
+                    margin-top: 25px;
+                }
+
+                &:last-child {
+                    margin-bottom: 45px;
+                }
+            }
+        }
+    }
+
+    .burgerMenu {
+        position: relative;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        z-index: 3;
+
+        span {
+            display: none;
+            position: absolute;
+
+            @media only screen and (max-width: 1000px) {
+                display: block;
             }
         }
     }

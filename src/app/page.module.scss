@@ -1,4 +1,25 @@
 //Variáveis
 
 $header-bg-color: #4D4646;
+$menu-bg-color: rgba(77, 70, 70, 0.90);
 $text-primary: #FFF;
+
+@mixin text-primary-font {
+    font-size: 20px;
+
+    @media only screen and (max-width: 1280px) {
+        font-size: 18px;
+    }
+}
+
+@mixin title-font {
+    font-size: 36px;
+
+    @media only screen and (max-width: 1000px) {
+        font-size: 34px;
+    }
+
+    @media only screen and (max-width: 535px) {
+        font-size: 30px;
+    }
+}

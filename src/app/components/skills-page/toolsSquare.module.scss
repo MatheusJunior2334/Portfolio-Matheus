@@ -15,7 +15,7 @@
     }
 
     p {
+        @include text-primary-font;
         color: $text-primary;
-        font-size: 22px;
     }
 }

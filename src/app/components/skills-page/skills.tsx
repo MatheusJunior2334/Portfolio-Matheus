@@ -3,17 +3,17 @@ import ToolsSquare from './toolsSquare';
 
 //Icons - Import
 
-import HtmlIcon from '../skills-icons/htmlIcon';
-import CssIcon from '../skills-icons/cssIcon';
-import SassIcon from '../skills-icons/sassIcon';
-import JavaScriptIcon from '../skills-icons/javaScriptIcon';
-import TypeScriptIcon from '../skills-icons/typeScript';
-import ReactJsIcon from '../skills-icons/reactJsIcon';
-import NextJsIcon from '../skills-icons/nextJsIcon';
-import MySqlIcon from '../skills-icons/mySqlIcon';
-import JavaIcon from '../skills-icons/javaIcon';
-import GitIcon from '../skills-icons/gitIcon';
-import AwsIcon from '../skills-icons/awsIcon';
+import HtmlIcon from './skills-icons/htmlIcon';
+import CssIcon from './skills-icons/cssIcon';
+import SassIcon from './skills-icons/sassIcon';
+import JavaScriptIcon from './skills-icons/javaScriptIcon';
+import TypeScriptIcon from './skills-icons/typeScript';
+import ReactJsIcon from './skills-icons/reactJsIcon';
+import NextJsIcon from './skills-icons/nextJsIcon';
+import MySqlIcon from './skills-icons/mySqlIcon';
+import JavaIcon from './skills-icons/javaIcon';
+import GitIcon from './skills-icons/gitIcon';
+import AwsIcon from './skills-icons/awsIcon';
 
 
 export default function Skills() {
@@ -33,7 +33,7 @@ export default function Skills() {
     ]
 
     return (
-        <section id={styles.skills}>
+        <section id="skills" className={styles.skill}>
             <h2>Tecnologias que estudo</h2>
             <div className={styles.technologies}>
                 {tools.map((tool, index) => (
