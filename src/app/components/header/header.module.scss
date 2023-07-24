@@ -91,8 +91,8 @@ $header-hover-color: #1AFFC8;
             z-index: 2;
 
             @media only screen and (max-width: 535px) {
-                height: calc(100% - 79.5px);
-                top: 79.5px;
+                height: calc(100% - 79px);
+                top: 79px;
             }
 
             li {
