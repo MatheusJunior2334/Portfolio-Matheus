@@ -29,13 +29,13 @@ export default function Header() {
         const handleWindowSizeChange = () => {
             const currentWidth = window.innerWidth;
 
-            if (currentWidth >= 1000) {
-                setMenuOpen(false);
-            }
-
             //Update the width size value if there's a change
             if (currentWidth !== windowWidth) {
                 setWindowWidth(currentWidth);
+            }
+
+            if (currentWidth >= 1000) {
+                setMenuOpen(false);
             }
         }
 
@@ -92,7 +92,7 @@ export default function Header() {
             <h1 className={`${indieFlower.className} ${styles.logo}`}>Matheus Júnior</h1>
             <div className={styles.nav_options}>
                 <nav ref={navRef}>
-                    <ul style={{ transform: `${menuOpen ? 'translateX(200%)' : ''} ${menuOpen ? 'rotate(90deg)' : ''}` }}>
+                    <ul style={{ transform: `${menuOpen ? 'translateX(0%)' : ''} ${menuOpen ? 'rotate(0deg)' : ''}` }}>
                         <li>
                             <span data-target="home">Home</span>
                         </li>

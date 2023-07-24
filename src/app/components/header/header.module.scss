@@ -87,7 +87,7 @@ $header-hover-color: #1AFFC8;
             column-gap: 0;
             background-color: $menu-bg-color;
             transition: transform 1s;
-            transform: translateX(0%) rotate(0deg);
+            transform: translateX(200%) rotate(90deg);
             z-index: 2;
 
             @media only screen and (max-width: 535px) {
