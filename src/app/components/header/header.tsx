@@ -34,7 +34,7 @@ export default function Header() {
             }
 
             //Update the width size value if there's a change
-            if (currentWidth !== windowWidth) {
+            else if (currentWidth !== windowWidth) {
                 setWindowWidth(currentWidth);
             }
         }
