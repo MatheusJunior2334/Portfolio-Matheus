@@ -22,9 +22,11 @@ export default function Header() {
         setMenuOpen(!menuOpen);
     }
 
-    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    const [windowWidth, setWindowWidth] = useState(0);
 
     useEffect(() => {
+        setWindowWidth(window.innerWidth);
+        
         //Function to verify if the screen is smaller than 1000px
         const handleWindowSizeChange = () => {
             const currentWidth = window.innerWidth;
