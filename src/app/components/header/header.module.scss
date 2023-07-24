@@ -45,7 +45,7 @@ $header-hover-color: #1AFFC8;
                 transition: all 0.8s;
                 cursor: pointer;
 
-                &::before {
+                &::before, .active {
                     content: '';
                     position: absolute;
                     width: auto;
@@ -87,12 +87,12 @@ $header-hover-color: #1AFFC8;
             column-gap: 0;
             background-color: $menu-bg-color;
             transition: transform 1s;
-            transform: translateX(200%) rotate(90deg);
+            transform: translateX(0%) rotate(0deg);
             z-index: 2;
 
             @media only screen and (max-width: 535px) {
-                height: calc(100% - 80px);
-                top: 80px;
+                height: calc(100% - 79.5px);
+                top: 79.5px;
             }
 
             li {

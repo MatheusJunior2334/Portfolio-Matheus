@@ -92,7 +92,7 @@ export default function Header() {
             <h1 className={`${indieFlower.className} ${styles.logo}`}>Matheus Júnior</h1>
             <div className={styles.nav_options}>
                 <nav ref={navRef}>
-                    <ul style={{ transform: `${menuOpen ? 'translateX(0)' : ''} ${menuOpen ? 'rotate(0deg)' : ''}` }}>
+                    <ul style={{ transform: `${menuOpen ? 'translateX(200%)' : ''} ${menuOpen ? 'rotate(90deg)' : ''}` }}>
                         <li>
                             <span data-target="home">Home</span>
                         </li>
