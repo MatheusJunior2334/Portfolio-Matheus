@@ -23,6 +23,7 @@
     "typewriter-effect": "^2.20.1"
   },
   "devDependencies": {
+    "@types/json5": "^2.2.0",
     "@types/react-burger-menu": "^2.8.3"
   }
 }

@@ -1,0 +1,102 @@
+//Animations for all icons
+
+
+//HTML Effect
+
+//CSS Effect
+
+//Sass Effect
+@keyframes sassEffect {
+    from {
+        fill: #FFFFFFA0;   
+    }
+
+    to {
+        fill: #CB6699;
+    }
+}
+
+.sassEffect {
+    path {
+        animation: sassEffect 5s alternate infinite;
+    }
+}
+
+//JavaScript Effect
+
+//TypeScript Effect
+
+//React JS Effect
+@keyframes reactEffect {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.reactEffect {
+    animation: reactEffect 5s linear infinite;
+}
+
+//Next JS Effect
+
+//MySQL Effect
+@keyframes mySqlEffect {
+    from {
+        fill: #00618A;
+    }
+
+    to {
+        fill: #FFF;
+    }
+}
+
+.mySqlEffect {
+
+    path {
+        animation: mySqlEffect 5s alternate infinite ease-in;
+    }
+}
+
+//JAVA Effect
+@keyframes javaEffect {
+    from {
+        fill: #EA2D2E;
+        transform: translateY(0px);
+    }
+
+    to {
+        fill: #F2A156;
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes javaEffect2 {
+    from {
+        fill: #0074BD;
+        transform: translateX(0px);
+    }
+
+    to {
+        fill: #FFF;
+        transform: translateX(5px);
+    }
+}
+
+.javaEffect {
+
+    :nth-child(2), :nth-child(4) {
+        animation: javaEffect 5s alternate infinite ease-in;
+    }
+
+    :nth-child(1), :nth-child(3), :nth-child(5) {
+        animation: javaEffect2 5s alternate infinite ease-in;
+    }
+}
+
+//Git Effect
+
+//AWS Effect

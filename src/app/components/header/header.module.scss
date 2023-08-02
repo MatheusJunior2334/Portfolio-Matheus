@@ -2,7 +2,6 @@
 
 $header-hover-color: #1AFFC8;
 
-
 #header {
     position: fixed;
     width: 100%;
@@ -13,7 +12,7 @@ $header-hover-color: #1AFFC8;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 5%;
+    padding: 10px 5%;
     z-index: 1;
 
     .logo {
@@ -22,15 +21,14 @@ $header-hover-color: #1AFFC8;
         color: $text-primary;
         z-index: 3;
 
-        @media only screen and (max-width: 535px) {
+        @media #{$mobileBig} {
             font-size: 34px;
         }
     }
 
     .nav_options ul {
-        @include text-primary-font;
+        @include text-primary-font($text-primary);
         display: flex;
-        color: $text-primary;
         list-style: none;
         column-gap: 30px;
 
@@ -45,7 +43,7 @@ $header-hover-color: #1AFFC8;
                 transition: all 0.8s;
                 cursor: pointer;
 
-                &::before, .active {
+                &::before {
                     content: '';
                     position: absolute;
                     width: auto;
@@ -66,7 +64,7 @@ $header-hover-color: #1AFFC8;
             &:hover, .active {
                 color: $header-hover-color;
 
-                span::before {
+                span::before, &.active::before {
                     transform: scaleX(1);
                     visibility: visible;
                     opacity: 1;
@@ -74,15 +72,15 @@ $header-hover-color: #1AFFC8;
             }
         }
 
-        @media only screen and (max-width: 1000px) {
+        @media (max-width: 1000px) {
             position: fixed;
             width: 100vw;
-            height: calc(100% - 88px);
+            height: calc(100% - 78px);
             overflow-y: auto;
             flex-direction: column;
             justify-content: flex-start;
             align-items: center;
-            top: 88px;
+            top: 78px;
             left: 0;
             column-gap: 0;
             background-color: $menu-bg-color;
@@ -90,9 +88,9 @@ $header-hover-color: #1AFFC8;
             transform: translateX(200%) rotate(90deg);
             z-index: 2;
 
-            @media only screen and (max-width: 535px) {
-                height: calc(100% - 79px);
-                top: 79px;
+            @media #{$mobileBig} {
+                height: calc(100% - 69px);
+                top: 69px;
             }
 
             li {
@@ -121,7 +119,7 @@ $header-hover-color: #1AFFC8;
             display: none;
             position: absolute;
 
-            @media only screen and (max-width: 1000px) {
+            @media (max-width: 1000px) {
                 display: block;
             }
         }

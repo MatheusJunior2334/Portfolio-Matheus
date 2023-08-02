@@ -3,9 +3,8 @@
 .projectsSection {
 
     h2 {
-        @include title-font;
-        padding: 25px 0;
-        color: $text-primary;
+        @include title-font($text-primary);
+        padding: 25px 0 50px 0;
         font-weight: normal;
         text-align: center;
     }
@@ -14,21 +13,25 @@
         width: 85%;
         margin: auto;
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(auto-fit, minmax(575px, 1fr));
         grid-template-rows: auto;
         justify-items: center;
         row-gap: 40px;
 
-        @media only screen and (max-width: 1500px) {
+        @media #{$largerScreens} {
             width: 90%;
         }
 
-        @media only screen and (max-width: 1280px) and (min-width: 1001px) {
+        @media #{$desktop} {
             width: 95%;
         }
 
-        @media only screen and (max-width: 1000px) {
-            grid-template-columns: repeat(1, 1fr);
+        @media #{$desktop} and (min-width: 535px) {
+            grid-template-columns: repeat(auto-fit, minmax(465px, 1fr));
+        }
+
+        @media #{$mobileBig} {
+            grid-template-columns: repeat(auto-fit, minmax(95%, 1fr));
         }
     }
 }

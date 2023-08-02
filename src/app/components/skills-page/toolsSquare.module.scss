@@ -1,5 +1,19 @@
 @import '../../page.module.scss';
 
+//Effects
+
+@keyframes reactEffect {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+//Main styles
+
 .tools {
     width: 150px;
     height: 150px;
@@ -12,10 +26,13 @@
 
     svg {
         width: 75px;
+
+        &:nth-of-type(5) {
+            animation: reactEffect 2s linear infinite;
+        }
     }
 
     p {
-        @include text-primary-font;
-        color: $text-primary;
+        @include text-primary-font($text-primary);
     }
 }

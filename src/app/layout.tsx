@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="pt">
       <head>
-        <link rel="shortcut icon" href="next.svg" type="image/x-icon" />
+        <link rel="icon" href="next.svg" type="image/x-icon" />
       </head>
 
       <body className={readexPro.className}>{children}</body>
