@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Indie_Flower } from 'next/font/google';
 import styles from './header.module.scss';
 
@@ -9,29 +9,29 @@ import styles from './header.module.scss';
 import BurgerIcon from './icons/burgerIcon';
 import XIcon from './icons/xIcon';
 
-//Font Import
+//Importação da Fonte
 
 const indieFlower = Indie_Flower({ subsets: ['latin'], weight: ['400'] })
 
-export default function Header() {
+export function Header() {
 
-    //Function to active the side menu
-    const [menuOpen, setMenuOpen] = useState(false);
+    //Função para ativar o menu lateral (no Responsivo)
+    const [menuOpen, setMenuOpen] = useState<boolean>(false);
 
     const handleClickMenu = () => {
         setMenuOpen(!menuOpen);
     }
 
-    const [windowWidth, setWindowWidth] = useState(0);
+    const [windowWidth, setWindowWidth] = useState<number>(0);
 
     useEffect(() => {
         setWindowWidth(window.innerWidth);
         
-        //Function to verify if the screen is smaller than 1000px
+        //Função para verificar se o tamanho da tela é menor que 1000px
         const handleWindowSizeChange = () => {
             const currentWidth = window.innerWidth;
 
-            //Update the width size value if there's a change
+            //Atualiza o valor da largura se houver alguma mudança
             if (currentWidth !== windowWidth) {
                 setWindowWidth(currentWidth);
             }
@@ -41,71 +41,100 @@ export default function Header() {
             }
         }
 
-        //Add the listener event to verify the window size change
+        //Adicione o "Event Listener" para verificar a mudança de tamanho da tela
         window.addEventListener('resize', handleWindowSizeChange);
 
-        //Remove the listener event when the container is closed
+        //Remove o "Event Listener" quando o container é fechado
         return () => {
             window.removeEventListener('resize', handleWindowSizeChange);
         }
     }, [windowWidth]);
 
 
-    //Code to shine button when reach a specified page container
-    const navRef = useRef<HTMLElement | null >(null);
-
-    const handleSectionVisibility: IntersectionObserverCallback = (entries) => {
-        entries.forEach((entry) => {
-            const target = entry.target;
-            const button = navRef.current?.querySelector(`[data-target='${target.id}']`);
-
-            if (entry.isIntersecting && button) {
-                button.classList.add(styles.active);
-            } else if (button) {
-                button.classList.remove(styles.active);
-            }
-        })
-    }
+    //Código para brilhar o botão ao chegar numa determinada section da página
+    const [activeSection, setActiveSection] = useState<string>('');
 
     useEffect(() => {
-        const options = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.7,
+        const handleScroll = () => {
+            const sections = document.querySelectorAll('section');
+            const currentScrollPos = window.pageYOffset;
+
+            sections.forEach((section) => {
+                const id = section.getAttribute('id');
+                const offset = section.offsetTop - 150;
+                const height = section.offsetHeight;
+
+                if (currentScrollPos >= offset && currentScrollPos < offset + height) {
+                    setActiveSection(id || '');
+                }
+            })
         }
 
-        const observer = new IntersectionObserver(handleSectionVisibility, options);
-
-        const sections = document.querySelectorAll('section');
-        sections.forEach((section) => {
-            observer.observe(section);
-        })
+        window.addEventListener('scroll', handleScroll);
 
         return () => {
-            sections.forEach((section) => {
-                observer.unobserve(section);
-            })
+            window.removeEventListener('scroll', handleScroll)
         }
     }, [])
 
+    //Código para rolar até a seção desejada
+    const scrollToSection = (section: string) => {
+        const sectionElement = document.getElementById(section);
+
+        if (sectionElement) {
+            sectionElement.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
 
     return (
         <header id={styles.header}>
             <h1 className={`${indieFlower.className} ${styles.logo}`}>Matheus Júnior</h1>
             <div className={styles.nav_options}>
-                <nav ref={navRef}>
+                <nav>
                     <ul style={{ transform: `${menuOpen ? 'translateX(0%)' : ''} ${menuOpen ? 'rotate(0deg)' : ''}` }}>
                         <li>
-                            <span data-target="home">Home</span>
+                            <span
+                                className={activeSection === 'home' ? styles.active : ''}
+                                onClick={() => {
+                                    setActiveSection('home');
+                                    scrollToSection('home');
+                                }}
+                            >
+                                Home
+                            </span>
                         </li>
                         <li>
-                            <span data-target="about">Sobre</span>
+                            <span
+                                className={activeSection === 'about' ? styles.active : ''}
+                                onClick={() => {
+                                    setActiveSection('about');
+                                    scrollToSection('about');
+                                }}
+                            >
+                                Sobre
+                            </span>
                         </li>
                         <li>
-                            <span data-target="skills">Habilidades</span>
+                            <span
+                                className={activeSection === 'skills' ? styles.active : ''}
+                                onClick={() => {
+                                    setActiveSection('skills');
+                                    scrollToSection('skills')
+                                }}
+                            >
+                                Habilidades
+                            </span>
                         </li>
                         <li>
-                            <span data-target="projects">Projetos</span>
+                            <span 
+                                className={activeSection === 'projects' ? styles.active : ''}
+                                onClick={() => {
+                                    setActiveSection('projects');
+                                    scrollToSection('projects')
+                                }}
+                            >
+                                Projetos
+                            </span>
                         </li>
                         <li>
                             <span>Currículo</span>

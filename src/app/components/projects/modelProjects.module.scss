@@ -5,9 +5,15 @@
     width: 560px;
     height: auto;
     border-radius: 15px;
-    background: linear-gradient(180deg, #4D4646 0%, rgba(8, 175, 255, 0.50) 100%);
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    background: linear-gradient(180deg, #4D4646 0%, rgb(8 175 255 / 0.50) 100%);
+    box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 0.25);
+    cursor: pointer;
 
+    &:hover img {
+        transform: scale(1.08);
+    }
+
+    //Início - Responsivo
     @media #{$desktop} and (min-width: 535px) {
         width: 450px;
     }
@@ -15,24 +21,32 @@
     @media #{$mobileBig} {
         width: 95%;
     }
+    //Fim - Responsivo
  
     .modelImage {
+        position: relative;
         width: 100%;
         height: 262px;
+        border-radius: 15px 15px 8px 8px;
+        overflow: hidden;
+        margin: 0 auto;
 
         img {
+            position: absolute;
             width: 100%;
-            height: 100%;
-            border-radius: 15px;
+            height: fit-content;
+            transition: all 0.3s;
         }
 
+        //Início - Responsivo
         @media #{$desktop} and (min-width: 535px) {
             height: 210px;
         }
 
         @media #{$mobileBig} {
-            height: auto;
+            height: 40vw;
         }
+        //Fim - Responsivo
     }
 
     .modelName {
@@ -46,9 +60,11 @@
            @include text-primary-font($text-primary);
             padding: 8px 0;
 
+            //Início - Responsivo
             @media #{$desktop} {
                 padding: 4px 0;
             }
+            //Fim - Responsivo
         }
     }
 }

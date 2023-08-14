@@ -1,6 +1,8 @@
-export default function HtmlIcon() {
+import styles from './iconsAnimations.module.scss';
+
+export function HtmlIcon() {
     return (
-        <svg viewBox="0 0 128 128">
+        <svg viewBox="0 0 128 128" className={styles.htmlEffect}>
             <path fill="#E44D26" d="M19.037 113.876L9.032 1.661h109.936l-10.016 112.198-45.019 12.48z"></path>
             <path fill="#F16529" d="M64 116.8l36.378-10.086 8.559-95.878H64z"></path>
             <path fill="#EBEBEB" d="M64 52.455H45.788L44.53 38.361H64V24.599H29.489l.33 3.692 3.382 37.927H64zm0 35.743l-.061.017-15.327-4.14-.979-10.975H33.816l1.928 21.609 28.193 7.826.063-.017z"></path>

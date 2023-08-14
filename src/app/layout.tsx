@@ -1,8 +1,8 @@
-import './globals.css'
+import './globals.scss'
 import type { Metadata } from 'next'
 import { Readex_Pro } from 'next/font/google'
 
-const readexPro = Readex_Pro({ subsets: ['latin'] , weight: ['400'] })
+const readexPro = Readex_Pro({ subsets: ['latin'] , weight: ['300', '400'] })
 
 export const metadata: Metadata = {
   title: 'Matheus Junior - Portfolio',
@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="pt">
       <head>
-        <link rel="icon" href="next.svg" type="image/x-icon" />
+        <link rel="icon" href="/next.svg" type="image/x-icon" />
       </head>
 
       <body className={readexPro.className}>{children}</body>

@@ -1,0 +1,402 @@
+@import '../../page.module.scss';
+
+//Variáveis
+
+$modalWindowSize: "(max-width: 1000px)";
+$divPaddingTop: 50px;
+$divPaddingBottom: 25px;
+
+@mixin modalCaption() {
+    font-size: 32px;
+    font-weight: 400;
+    color: $text-primary;
+
+    @media #{$modalWindowSize} {
+        font-size: 30px;
+        text-align: center;
+    }
+
+    @media #{$mobileBig} {
+        font-size: 26px;
+    }
+}
+
+@mixin modalType() {
+    font-size: 22px;
+    color: #BBB;
+
+    @media #{$desktop} {
+        font-size: 20px;
+    }
+}
+
+//Animações - Ao ativar modal
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(100%);
+    }
+}
+
+.modalEnter {
+    animation: slideIn 0.3s ease-in-out;
+    left: 2.5%;
+}
+
+.modalExit {
+    animation: slideOut 0.3s ease-in-out;
+    left: 2.5%;
+}
+
+//Estilização principal
+
+.projectModalMain {
+    position: fixed;
+    width: 95%;
+    height: 95%;
+    overflow-y: auto;
+    margin: auto;
+    background-color: #333961f8;
+    display: grid;
+    grid-template-columns: 60% 40%;
+    grid-template-areas: "close close" "img access" "about technologies" "party party" ;
+    padding: 2%;
+    border-radius: 25px;
+    top: 2.5%;
+    z-index: 4;
+
+    //Estilização do Scroll
+    &::-webkit-scrollbar {
+
+        @media #{$tablet} {
+            width: 2px;
+        }
+    }
+    
+    &::-webkit-scrollbar-track {
+        background-color: #333961;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+        background-color: #c2c8d8da;
+    }
+
+    //Início - Responsivo
+    @media #{$modalWindowSize} {
+        grid-template-columns: 100%;
+        grid-template-areas: "close" "img" "access" "about" "technologies" "party";
+        padding: $divPaddingBottom 5% 5% 5%;
+    }
+
+    @media #{$mobileNormal} {
+        padding: 10px 2% 2% 2%;
+        border-radius: 15px;
+    }
+    //Fim - Responsivo
+
+    //X para fechar modal
+    .closeModal {
+        position: relative;
+        grid-area: close;
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+        z-index: 5;
+
+        //Início - Responsivo
+        @media #{$modalWindowSize} {
+            padding-bottom: $divPaddingBottom;
+        }
+
+        @media #{$mobileNormal} {
+            padding-bottom: 15px;
+        }
+
+        svg {
+            position: fixed;
+            border-radius: 12px;
+            background: linear-gradient(180deg, #5c1212 0%, rgb(150 0 0 / 0.95) 100%);
+            padding: 5px;
+            box-sizing: initial;
+            transition: all 0.3s;
+            cursor: pointer;
+
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+    }
+
+    //Seção da imagem do projeto
+    .imgProject {
+        height: auto;
+        grid-area: img;
+
+        img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 0.25);
+        }
+    }
+
+    //Seção dos links de acesso
+    .accessProject {
+        grid-area: access;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+
+        .header {
+            @media #{$modalWindowSize} {
+                margin-top: 20px;
+            }
+
+            h2 {
+                @include title-font($text-primary);
+                text-align: center;
+                padding: 0;
+            }
+    
+            h4 {
+                @include modalType();
+                text-align: center;
+                padding-top: 5px;
+            }
+        }
+
+        .links {
+            
+            @media #{$modalWindowSize} {
+                display: flex;
+                margin-top: 25px;
+            }
+
+            @media #{$tablet} {
+                flex-direction: column;
+                row-gap: 15px;
+            } 
+
+            .gitHub, .deploy {
+                width: 70%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: auto;
+                border-radius: 15px;
+                column-gap: 40px;
+                padding: 5px 0;
+                transition: 0.3s;
+                cursor: pointer;
+
+                @media #{$desktop} {
+                    width: 80%;
+                }
+
+                @media #{$modalWindowSize} {
+                    width: 45%;
+                }
+
+                @media #{$tablet} {
+                    width: 65%;
+                }
+
+                @media #{$mobileBig} {
+                    width: 85%;
+                    column-gap: 20px;
+                }
+
+                @media #{$mobileNormal} {
+                    width: 95%;
+                }
+
+                svg {
+                    width: 40px;
+                }
+
+                &:hover {
+                    transform: scale(1.03);
+                }
+            }
+
+            .gitHub {
+                background-color: rgb(7 13 30 / 0.50);
+
+                p {
+                    @include text-primary-font($text-primary);
+                }
+            }
+
+            .deploy {
+                background: rgb(255 255 255 / 0.75);
+                margin-top: 15px;
+
+                @media #{$modalWindowSize} {
+                    margin-top: 0;
+                }
+
+                p {
+                    @include text-primary-font(#000);
+                }
+            }
+        }
+    }
+
+    //Seção do Sobre do projeto
+    .aboutProject {
+        grid-area: about;
+        padding-top: $divPaddingTop;
+
+        h3 {
+            @include modalCaption();
+            padding-bottom: $divPaddingBottom;
+        }
+
+        p {
+            @include text-primary-font($text-primary);
+        }
+    }
+
+    //Seção das Tecnologias do projeto
+    .technologiesProject {
+        width: 85%;
+        margin-left: auto;
+        margin-right: auto;
+        grid-area: technologies;
+        padding-top: $divPaddingTop;
+
+        @media #{$desktop} {
+            width: 75%;
+        }
+
+        @media #{$modalWindowSize} {
+            width: 100%;
+        }
+
+        h3 {
+            @include modalCaption();
+            padding-bottom: $divPaddingBottom;
+        }
+
+        .techIcons {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            justify-items: center;
+            row-gap: 20px;
+
+            //Início - Responsivo
+            @media #{$desktop} {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            @media #{$modalWindowSize} {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            @media #{$tablet} {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            @media #{$mobileBig} {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            //Fim - Responsivo
+
+            div {
+                width: 125px;
+                height: 125px;
+
+                svg {
+                    width: 70px;
+                }
+            }
+        }
+    }
+
+    //Seção dos integrantes da equipe (Componente opcional)
+    .partyMembers {
+        grid-area: party;
+        padding-top: $divPaddingTop;
+
+        h3 {
+            @include modalCaption();
+            padding-bottom: $divPaddingBottom;
+        }
+
+        .membersGrid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            justify-items: center;
+            row-gap: 25px;
+
+            //Início - Responsivo
+            @media #{$modalWindowSize} {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            @media #{$tablet} {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            //Fim - Responsivo
+
+            div {
+                display: flex;
+                flex-direction: column;
+                row-gap: 5px;
+                cursor: pointer;
+
+                &:hover img {
+                    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+                }
+    
+                img {
+                    width: 200px;
+                    height: 200px;
+                    border-radius: 15px;
+                    transition: all 0.3s;
+
+                    //Início - Responsivo
+                    @media #{$largerScreens} {
+                        width: 235px;
+                        height: 235px;
+                    }
+
+                    @media #{$tablet} {
+                        width: 200px;
+                        height: 200px;
+                    }
+
+                    @media #{$mobileBig} {
+                        width: 170px;
+                        height: 170px;
+                    }
+
+                    @media #{$mobileNormal} {
+                        width: 140px;
+                        height: 140px;
+                    }
+                    //Fim - Responsivo
+                }
+    
+                p {
+                    @include text-primary-font($text-primary);
+                    text-align: center;
+                }
+            }
+        }
+    }
+}

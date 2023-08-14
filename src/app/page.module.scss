@@ -1,7 +1,7 @@
 //Variáveis
 
 $header-bg-color: #4D4646;
-$menu-bg-color: rgba(77, 70, 70, 0.90);
+$menu-bg-color: rgb(77 70 70 / 0.90);
 $text-primary: #FFF;
 
 $largerScreens: "(min-width: 1500px)";
@@ -12,6 +12,7 @@ $mobileNormal: "(max-width: 480px)";
 
 @mixin text-primary-font($color) {
     font-size: 20px;
+    font-weight: 300;
     color: $color;
 
     @media #{$desktop} {
@@ -21,6 +22,7 @@ $mobileNormal: "(max-width: 480px)";
 
 @mixin title-font($color) {
     font-size: 36px;
+    font-weight: 400;
     color: $color;
 
     @media only screen and (max-width: 1000px) {

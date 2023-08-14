@@ -1,0 +1,44 @@
+/*CSS Reset*/
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/*Estilização do Scroll*/
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #3041c1;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #c2c8d8da;
+    border-radius: 10px;
+}
+
+
+/*Animações*/
+
+@keyframes bodyAnimation {
+    from {
+        background-position: 0% 0%;
+    }
+
+    to {
+        background-position: 100% 100%;
+    }
+}
+
+/*Estilização principal*/
+
+body {
+    width: 100%;
+    background: linear-gradient(180deg, #4D4646 5.79%, #0921D7 100%);
+    background-size: 200% 200%;
+    animation: bodyAnimation 10s alternate infinite ease;
+}

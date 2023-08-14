@@ -1,4 +1,4 @@
-export default function NextJsIcon() {
+export function NextJsIcon() {
     return (
         <svg viewBox="-25.6 -25.6 307.20 307.20" height="75px" version="1.1" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid" fill="#ffffff" stroke="#ffffff">
             <g id="SVGRepo_bgCarrier" strokeWidth="0"/>

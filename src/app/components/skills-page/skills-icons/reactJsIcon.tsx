@@ -1,6 +1,6 @@
 import styles from './iconsAnimations.module.scss';
 
-export default function ReactJsIcon() {
+export function ReactJsIcon() {
     return (
         <svg viewBox="0 0 128 128" className={styles.reactEffect}>
             <g fill="#61DAFB">
