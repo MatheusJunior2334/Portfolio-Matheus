@@ -5,6 +5,7 @@ import Image from 'next/image';
 import styles from './screenSaver.module.scss';
 
 import steelyDan from '../../../../public/Steely Dan - Aja.webp';
+import { Vinyl } from './images/vinyl';
 
 interface ScreenSaverProps {
     timeout: number;
@@ -16,17 +17,28 @@ export function ScreenSaver({ timeout } : ScreenSaverProps) {
     const [active, setActive] = useState<boolean>(false);
     const imageRef = useRef<HTMLImageElement | null>(null);
     const audioRef = useRef<HTMLAudioElement | null>(null);
+    const vinylRef = useRef<SVGSVGElement | null>(null);
 
     useEffect(() => {
         let timeoutId: NodeJS.Timeout | null = null;
         let animationTimeout: NodeJS.Timeout | null = null;
 
-        if (audioRef.current) {
-            audioRef.current.volume = 1;
-            audioRef.current.play().catch(error => {
-                console.error('Error playing audio', error)
-            })
-        }
+        //Tempo de iniciação da música
+        setTimeout(() => {
+            if (audioRef.current) {
+                audioRef.current.volume = 1;
+                audioRef.current.play().catch(error => {
+                    console.error('Error playing audio', error)
+                })
+            }
+        }, 3 * 1000)
+
+        //Finalização da animação do Vinil
+        setTimeout(() => {
+            if (vinylRef.current) {
+                vinylRef.current.classList.add(`${styles.stopAnimation}`)
+            }
+        }, 8 * 60 * 1000)
 
         const resetTimeOut = () => {
             if (timeoutId) clearTimeout(timeoutId);
@@ -67,6 +79,7 @@ export function ScreenSaver({ timeout } : ScreenSaverProps) {
     if (active) {
         return (
             <div id={styles.screensaver}>
+                <Vinyl ref={vinylRef}/>
                 <div>
                     <Image
                         src={steelyDan}

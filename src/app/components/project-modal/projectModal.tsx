@@ -9,6 +9,13 @@ import { DeployIcon } from "../skills-page/skills-icons/deployIcon";
 //X para sair do Modal
 import XIcon from "../header/icons/xIcon";
 
+//Declaração das props para adicionar membros da equipe
+export interface partyMembers {
+    image: string;
+    name: string;
+    linkedin: string;
+}
+
 //Declaração das props e seus tipos
 export interface ModalInfo {
     projectImg: StaticImageData;
@@ -18,9 +25,7 @@ export interface ModalInfo {
     projectPage: string;
     projectAbout: JSX.Element;
     projectTechnologies: React.ReactNode[];
-    projectMembersImg?: string[];
-    projectMembersName?: string[];
-    membersLinkedin?: string[];
+    projectMembers?: partyMembers[];
 }
 
 //Importação das props para facilitar execução do código
@@ -95,29 +100,28 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ modal, closeModal, i
                     </div>
         
                     {/*Projetos - Membros (Componente opcional)*/}
-                    {project.projectMembersImg && (
+                    {project.projectMembers && (
                         <div className={styles.partyMembers}>
                             <h3>Membros do Projeto</h3>
         
                             <div className={styles.membersGrid}>
-                                {project.projectMembersImg.map((memberImg, index) => (
+                                {project.projectMembers?.map((member, index) => (
         
-                                    <div key={index} title={`Acessar Linkedin de ${project.projectMembersName?.[index]}`} onClick={() => {
-                                        const linkedinUrl = project.membersLinkedin?.[index];
-                                        if (linkedinUrl) {
-                                            openInNewTab(linkedinUrl);
+                                    <div key={index} title={`Acessar Linkedin de ${member.name}`} onClick={() => {
+                                        if (member.linkedin) {
+                                            openInNewTab(member.linkedin);
                                         }
                                     }}>
                                         <Image
-                                            src={memberImg}
+                                            src={member.image}
                                             alt={`Membro ${index + 1}`}
                                             width={800} //Os tamanhos definidos são para a boa qualidade da imagem
                                             height={800}
                                             quality={100}
                                             priority
                                         />
-                                        {project.projectMembersName && project.projectMembersName[index] && (
-                                            <p>{project.projectMembersName[index]}</p>
+                                        {project.projectMembers && project.projectMembers[index] && (
+                                            <p>{member.name}</p>
                                         )}
         
                                     </div>

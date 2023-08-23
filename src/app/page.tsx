@@ -16,7 +16,7 @@ export default function Home() {
       <Skills />
       <Projects />
 
-      <ScreenSaver timeout={500000} />
+      <ScreenSaver timeout={5 * 60 * 1000} />
     </main>
   )
 }

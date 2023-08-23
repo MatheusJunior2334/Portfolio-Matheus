@@ -7,20 +7,21 @@ import { NostalgicWorldImg, HBankImg, MarcioImg, JMBankImg, PectoImg } from "../
 //Membros de Equipe
 import { 
     //Pecto
-    CassiaImg, CassiaLinkedin,
-    GabrielImg, GabrielLinkedin,
-    HitaloImg, HitaloLinkedin,
-    IgorImg, IgorLinkedin,
-    JonatasImg, JonatasLinkedin,
-    KetelynImg, KetelynLinkedin,
-    MatheusImg, MatheusLinkedin,
-    MilenyImg, MilenyLinkedin,
+    Cassia,
+    Gabriel,
+    Hitalo,
+    Igor,
+    Jonatas,
+    Ketelyn,
+    Matheus,
+    Mileny,
 
     //Outros Projetos
-    KathImg, KathLinkedin,
-    MacielImg, MacielLinkedin,
-    WesleyImg, WesleyLinkedin,
-    WilliamImg, WillianLinkedin,
+    Kath,
+    Maciel,
+    Wesley,
+    Willian
+    
 } from './membersTeam';
 
 //Tecnologias
@@ -43,10 +44,8 @@ export const NostalgicWorld: ModalInfo[] = [
             </p>
         ),
         projectTechnologies: [<HTML />, <CSS />, <Bootstrap />],
-        projectMembersImg: [GabrielImg, JonatasImg, KathImg, MacielImg, KetelynImg, MatheusImg],
-        projectMembersName: ['Gabriel Souza', 'Jonatas Anjos', 'Kath Gomes', 'Kayque Maciel', 'Ketelyn Sousa', 'Matheus Júnior'],
-        membersLinkedin: [GabrielLinkedin, JonatasLinkedin, KathLinkedin, MacielLinkedin, KetelynLinkedin, MatheusLinkedin]
-    },
+        projectMembers: [Gabriel, Jonatas, Kath, Maciel, Ketelyn, Matheus]
+     },
 ]
 
 //H-Bank
@@ -61,9 +60,7 @@ export const HBank: ModalInfo[] = [
             <p>Esse foi o nosso segundo projeto em equipe dentro do Instituto PROA. A H-Bank é uma Fintech que visa maximizar e facilitar as finanças para nossos usuários em todos os sentidos, assim trazendo uma maior comodidade e melhor experiência ao mesmo.</p>
         ),
         projectTechnologies: [<HTML />, <CSS />, <JavaScript />],
-        projectMembersImg: [CassiaImg, GabrielImg, HitaloImg, MatheusImg, WesleyImg, WilliamImg ],
-        projectMembersName: ['Cassia Santos', 'Gabriel Souza', 'Hitalo Jacome', 'Matheus Júnior', 'Wesley Souza', 'William Rizzo'],
-        membersLinkedin: [CassiaLinkedin, GabrielLinkedin, HitaloLinkedin, MatheusLinkedin, WesleyLinkedin, WillianLinkedin]
+        projectMembers: [Cassia, Gabriel, Hitalo, Matheus, Wesley, Willian]
     }
 ]
 
@@ -77,10 +74,10 @@ export const Marcio: ModalInfo[] = [
         projectPage: 'https://marcio-motorista-especial.vercel.app/',
         projectAbout: (
             <p>
-                Esse projeto faz parte do "Corre da Quebrada", primeiro projeto individual que visa propagar o alcance de iniciativas de trabalho de parentes ou pessoas próximas. O Márcio - Motorista Especial tem o propósito de vender um serviço voltado ao fretamento de pessoas, em que o motorista de viagens especiais - Márcio - é contratado a fim de realizar uma viagem para com o veículo deste contratante, ou seja, contratar um motorista para realizar uma determinada viagem para alguém que tem um veículo de locação mas que não tem um motorista fixo ou que não possa realizar essa viagem.
+                Esse projeto faz parte do "Corre da Quebrada", primeiro projeto individual proposto pelo Instituto PROA, sendo que este visa propagar o alcance de iniciativas de trabalho de parentes ou pessoas próximas. O Márcio - Motorista Especial tem o propósito de vender um serviço voltado ao fretamento de pessoas, em que o motorista de viagens especiais - Márcio - é contratado a fim de realizar uma viagem para com o veículo deste contratante, ou seja, contratar um motorista para realizar uma determinada viagem para alguém que tem um veículo de locação mas que não tem um motorista fixo ou que não possa realizar essa viagem.
             </p>
         ),
-        projectTechnologies: [<HTML />, <CSS />, <JavaScript />]
+        projectTechnologies: [<HTML />, <CSS />, <JavaScript />],
     }
 ]
 
@@ -118,8 +115,6 @@ export const Pecto: ModalInfo[] = [
             </p>
         ),
         projectTechnologies: [<ReactJs />, <Sass />, <MySQL />, <JAVA />, <Spring />, <Python />] ,
-        projectMembersImg: [CassiaImg, GabrielImg, HitaloImg, IgorImg, JonatasImg, KetelynImg, MatheusImg, MilenyImg],
-        projectMembersName: ['Cassia Santos', 'Gabriel Sousa', 'Hitalo Jacome', 'Igor Alves', 'Jonatas Anjos', 'Ketelyn Sousa', 'Matheus Júnior', 'Mileny Nogueira'],
-        membersLinkedin: [CassiaLinkedin, GabrielLinkedin, HitaloLinkedin, IgorLinkedin, JonatasLinkedin, KetelynLinkedin, MatheusLinkedin, MilenyLinkedin]
+        projectMembers: [Cassia, Gabriel, Hitalo, Igor, Jonatas, Ketelyn, Matheus, Mileny]
     }
 ]
