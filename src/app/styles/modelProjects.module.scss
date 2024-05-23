@@ -51,7 +51,7 @@
 
 //Responsividade
 
-@media #{$desktop} {
+@media #{$laptop} {
     .modelProjects {
         .modelName {
             p {
@@ -61,7 +61,7 @@
     }
 }
 
-@media #{$desktop} and (min-width: 535px) {
+@media #{$laptop} and (min-width: 535px) {
     .modelProjects {
         width: 450px;
 

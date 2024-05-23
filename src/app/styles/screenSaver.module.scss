@@ -110,7 +110,7 @@
 
 // Responsividade
 
-@media #{$desktop} {
+@media #{$laptop} {
     #screensaver {
         div {
             width: calc(100% - 175px);

@@ -4,32 +4,37 @@
 
 $modalWindowSize: "(max-width: 1000px)";
 
-@mixin modalCaption() {
+@mixin modal-project-title() {
     font-size: 30px;
     font-weight: 400;
     color: $text-primary;
-
-    @media #{$modalWindowSize} {
-        font-size: 28px;
-        text-align: center;
-    }
+    text-align: center;
 
     @media #{$mobileBig} {
         font-size: 26px;
     }
 }
 
-@mixin modalType() {
+@mixin modal-project-type() {
     font-size: 20px;
     font-weight: 400;
     color: #BBB;
+    text-align: center;
 
-    @media #{$desktop} {
+    @media #{$laptop} {
         font-size: 18px;
     }
 }
 
-//Animações - Ao ativar modal
+@mixin modal-project-caption {
+    font-size: 28px;
+    font-weight: 400;
+    color: $text-primary;
+
+    @media #{$tablet} {
+        font-size: 24px;
+    }
+}
 
 @keyframes slideIn {
     from {
@@ -52,13 +57,11 @@ $modalWindowSize: "(max-width: 1000px)";
 }
 
 .modalEnter {
-    animation: slideIn 0.3s ease-in-out;
-    left: 2.5%;
+    animation: slideIn 0.3s ease-in-out forwards;
 }
 
 .modalExit {
-    animation: slideOut 0.3s ease-in-out;
-    left: 2.5%;
+    animation: slideOut 0.3s ease-in-out forwards;
 }
 
 //Estilização principal
@@ -67,7 +70,7 @@ $modalWindowSize: "(max-width: 1000px)";
     position: fixed;
     width: 100%;
     height: 100%;
-    z-index: 4;
+
     top: 0;
     left: 0;
 
@@ -75,179 +78,139 @@ $modalWindowSize: "(max-width: 1000px)";
     justify-content: center;
     align-items: center;
 
+    z-index: 4;
+
     .projectModalBackdrop {
         position: absolute;
         width: 100%;
         height: 100%;
-        z-index: 2;
-
-        background-color: transparent;
         backdrop-filter: blur(4px);
+
+        z-index: -1;
     }
 
     .projectModalMain {
-        width: 95%;
-        height: 95%;
+        width: 94%;
+        height: 94%;
         overflow-y: auto;
-        margin: auto;
-        background-color: #333961f8;
+
+        background-color: #333961F8;
         display: grid;
         grid-template-columns: 60% 40%;
-        grid-template-areas: "close close" "img access" "about technologies" "party party" ;
-        row-gap: 20px;
-        padding: 0 20px 20px 20px;
-        border-radius: 12px;
-        z-index: 3;
-    
-        //Estilização do Scroll
-        &::-webkit-scrollbar {
-    
-            @media #{$tablet} {
-                width: 2px;
-            }
-        }
+        grid-template-areas: "img links" "about tech" "party party";
+        grid-row-gap: 20px;
+        padding: 1.5%;
+        border-radius: 14px;
+
+        z-index: 1;
         
         &::-webkit-scrollbar-track {
             background-color: #333961;
         }
 
         .closeModal {
-            position: relative;
-            grid-area: close;
+            position: fixed;
             display: flex;
-            justify-content: flex-end;
-            width: 100%;
+            top: 6%;
+            right: 6%;
+            background: linear-gradient(180deg, #5c1212 0%, rgb(150 0 0 / 0.95) 100%);
+            outline: none;
+            border: none;
+            padding: 5px;
+            box-sizing: content-box;
+
+            border-radius: 4px;
+            transition: all 0.3s;
             z-index: 5;
-    
-            button {
-                position: fixed;
-                border-radius: 12px;
-                background: linear-gradient(180deg, #5c1212 0%, rgb(150 0 0 / 0.95) 100%);
-                margin-top: 20px;
-    
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                padding: 5px;
-                box-sizing: content-box;
-                transition: all 0.3s;
-                cursor: pointer;
-    
-                &:hover {
-                    transform: scale(1.1);
-                }
+            cursor: pointer;
+
+            &:hover {
+                transform: scale(1.1);
             }
         }
-    
-        //Seção da imagem do projeto
+
         .imgProject {
-            height: auto;
             grid-area: img;
-    
+
             img {
                 width: 100%;
                 height: auto;
                 border-radius: 8px;
-                box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 0.25);
             }
         }
 
-        .accessProject {
-            grid-area: access;
+        .linksProject {
+            grid-area: links;
+
             display: flex;
             flex-direction: column;
+            align-items: center;
             justify-content: space-around;
-    
-            .header {    
+
+            .header {
                 display: flex;
                 flex-direction: column;
                 row-gap: 4px;
 
                 h2 {
-                    @include title-primary();
-                    text-align: center;
+                    @include modal-project-title();
                 }
-        
+
                 h4 {
-                    @include modalType();
-                    text-align: center;
+                    @include modal-project-type();
                 }
             }
-    
+
             .links {
                 display: flex;
                 flex-direction: column;
-                row-gap: 14px;
-    
+                gap: 10px;
+
+                .gitHub { background-color: rgb(7 13 30 / 0.50); }
+                .deploy { background: rgb(255 255 255 / 0.75); p { color: #000 !important; } }
+
                 .gitHub, .deploy {
-                    width: 70%;
                     display: flex;
-                    justify-content: center;
                     align-items: center;
-                    margin: 0 auto;
+                    text-decoration: none;
+                    column-gap: 14px;
+
+                    box-sizing: content-box;
+                    padding: 4px 50px;
                     border-radius: 14px;
-                    column-gap: 20px;
-                    padding: 4px 0;
-                    transition: 0.3s transform;
-                    cursor: pointer;
-    
+
                     svg {
                         width: 40px;
+                        height: 40px;
                     }
-    
-                    &:hover {
-                        transform: scale(1.03);
-                    }
-                }
-    
-                .gitHub {
-                    background-color: rgb(7 13 30 / 0.50);
-    
-                    p {
-                        @include text-primary();
-                    }
-                }
-    
-                .deploy {
-                    background: rgb(255 255 255 / 0.75);
-    
-                    p {
-                        @include text-primary();
-                        color: #000;
-                    }
+
+                    p { @include text-primary() }
                 }
             }
         }
-    
+
         .aboutProject {
             grid-area: about;
 
             display: flex;
             flex-direction: column;
             row-gap: 20px;
-    
-            h3 {
-                @include modalCaption();
-            }
-    
-            p {
-                @include text-primary();
-            }
+
+            h3 { @include modal-project-caption() }
+
+            p { @include text-primary() }
         }
-    
-        .technologiesProject {
-            width: 88%;
-            margin: 0 auto;
-            grid-area: technologies;
+
+        .techProject {
+            grid-area: tech;
 
             display: flex;
             flex-direction: column;
             row-gap: 20px;
-    
-            h3 {
-                @include modalCaption();
-            }
-    
+            padding-left: 5%;
+
+            h3 { @include modal-project-caption() }
+
             .techIcons {
                 display: grid;
                 grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
@@ -257,53 +220,50 @@ $modalWindowSize: "(max-width: 1000px)";
                 div {
                     width: 120px;
                     height: 120px;
-    
+
                     svg {
-                        width: 64px;
+                        width: 70px;
                     }
                 }
             }
         }
-    
+
         .partyMembers {
             grid-area: party;
             display: flex;
             flex-direction: column;
             row-gap: 20px;
-    
-            h3 {
-                @include modalCaption();
-            }
-    
+
+            h3 { @include modal-project-caption(); }
+
             .membersGrid {
                 display: grid;
-                grid-template-columns: repeat(4, 1fr);
+                grid-template-columns: repeat(5, 1fr);
+                grid-row-gap: 20px;
                 justify-items: center;
-                row-gap: 20px;
-    
-                div {
+
+                a {
                     display: flex;
                     flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    text-decoration: none;
                     row-gap: 4px;
-                    cursor: pointer;
-    
+
+                    img {
+                        width: 210px;
+                        height: 210px;
+                        border-radius: 14px;
+                        clip-path: circle(110% at 50% -10%);
+                        transition: clip-path 0.3s ease-out;
+                    }
+
                     &:hover img {
                         box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
                         clip-path: circle(110% at 50% 0%);
                     }
-        
-                    img {
-                        width: 210px;
-                        height: 210px;
-                        border-radius: 15px;
-                        clip-path: circle(110% at 50% -10%);
-                        transition: clip-path 0.3s ease-out;
-                    }
-        
-                    p {
-                        @include text-primary();
-                        text-align: center;
-                    }
+
+                    p { @include text-primary() }
                 }
             }
         }
@@ -312,19 +272,13 @@ $modalWindowSize: "(max-width: 1000px)";
 
 // Responsividade
 
-@media #{$desktop} {
+@media #{$laptop} {
     .projectModalContainer {
         .projectModalMain {
-            .accessProject {
-                .links {
-                    .gitHub, .deploy {
-                        width: 80%;
-                    }
+            .partyMembers {
+                .membersGrid {
+                    grid-template-columns: repeat(4, 1fr);
                 }
-            }
-
-            .technologiesProject {
-                width: 80%;
             }
         }
     }
@@ -333,26 +287,27 @@ $modalWindowSize: "(max-width: 1000px)";
 @media #{$modalWindowSize} {
     .projectModalContainer {
         .projectModalMain {
-            grid-template-columns: 100%;
-            grid-template-areas: "close" "img" "access" "about" "technologies" "party";
+            grid-template-areas: "img img" "links links" "about about" "tech tech" "party party";
 
-            .accessProject {
+            h3 { text-align: center; }
+
+            .linksProject {
                 row-gap: 20px;
                 
                 .links {
                     flex-direction: row;
 
                     .gitHub, .deploy {
-                        width: 45%;
+                        padding: 4px 40px;
                     }
                 }
             }
 
-            .technologiesProject {
-                width: 100%;
+            .techProject {
+                padding-left: 0;
 
                 .techIcons {
-                    grid-template-columns: repeat(4, 1fr);
+                    grid-template-columns: repeat(5, 1fr);
                 }
             }
 
@@ -368,19 +323,28 @@ $modalWindowSize: "(max-width: 1000px)";
 @media #{$tablet} {
     .projectModalContainer {
         .projectModalMain {
-            .accessProject {
+            &::-webkit-scrollbar {
+                width: 2px;
+            }
+
+            .linksProject {
                 .links {
                     flex-direction: column;
-
-                    .gitHub, .deploy {
-                        width: 65%;
-                    }
                 }
             }
 
-            .technologiesProject {
+            .techProject {
                 .techIcons {
-                    grid-template-columns: repeat(3, 1fr);
+                    grid-template-columns: repeat(4, 1fr);
+
+                    div {
+                        width: 110px;
+                        height: 110px;
+
+                        svg {
+                            width: 62px;
+                        }
+                    }
                 }
             }
 
@@ -396,26 +360,18 @@ $modalWindowSize: "(max-width: 1000px)";
 @media #{$mobileBig} {
     .projectModalContainer {
         .projectModalMain {
-            .accessProject {
-                .links {
-                    .gitHub, .deploy {
-                        width: 85%;
-                    }
-                }
-            }
-
-            .technologiesProject {
+            .techProject {
                 .techIcons {
-                    grid-template-columns: repeat(2, 1fr);
+                    grid-template-columns: repeat(3, 1fr);
                 }
             }
 
             .partyMembers {
                 .membersGrid {
-                    div {
+                    a {
                         img {
-                            width: 170px;
-                            height: 170px;
+                            width: 180px;
+                            height: 180px;
                         }
                     }
                 }
@@ -427,20 +383,15 @@ $modalWindowSize: "(max-width: 1000px)";
 @media #{$mobileNormal} {
     .projectModalContainer {
         .projectModalMain {
-            padding: 0px 2% 2% 20px;
-            border-radius: 15px;
-
-            .accessProject {
-                .links {
-                    .gitHub, .deploy {
-                        width: 95%;
-                    }
+            .techProject {
+                .techIcons {
+                    grid-template-columns: repeat(2, 1fr);
                 }
             }
 
             .partyMembers {
                 .membersGrid {
-                    div {
+                    a {
                         img {
                             width: 140px;
                             height: 140px;

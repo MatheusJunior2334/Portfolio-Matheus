@@ -7,13 +7,12 @@ $text-primary: #FFF;
 $marginSection: 18px;
 
 $largerScreens: "(min-width: 1500px)";
-$desktop: "(max-width: 1280px)";
+$laptop: "(max-width: 1280px)";
 $tablet: "(max-width: 768px)";
 $mobileBig: "(max-width: 535px)";
 $mobileNormal: "(max-width: 480px)";
 
 @mixin h1-text() {
-    font-size: 44px;
     font-size: 40px;
     font-weight: normal;
     color: $text-primary;
@@ -46,7 +45,7 @@ $mobileNormal: "(max-width: 480px)";
     font-weight: 300;
     color: $text-primary;
 
-    @media #{$desktop} {
+    @media #{$laptop} {
         font-size: 18px;
     }
 }
