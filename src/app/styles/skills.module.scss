@@ -1,0 +1,60 @@
+@import '../page.module.scss';
+
+.skillsSection {
+    width: 100%;
+    padding: $marginSection 0;
+    background-color: rgb(217 217 217 / 0.05);
+
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+
+    h2 {
+        @include title-primary();
+        text-align: center;
+    }
+
+    .technologies {
+        width: 90%;
+        display: grid;
+        justify-items: center;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: auto;
+        row-gap: 22px;
+        margin: auto;
+    }
+}
+
+// Responsivity
+
+@media #{$largerScreens} {
+    .skillsSection {
+        .technologies {
+            grid-template-columns: repeat(6, 1fr);
+        }
+    }
+}
+
+@media (max-width: 1000px) {
+    .skillsSection {
+        .technologies {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+}
+
+@media #{$tablet} {
+    .skillsSection {
+        .technologies {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+}
+
+@media #{$mobileBig} {
+    .skillsSection {
+        .technologies {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+}

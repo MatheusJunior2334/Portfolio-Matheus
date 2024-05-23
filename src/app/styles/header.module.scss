@@ -1,0 +1,155 @@
+@import '../page.module.scss';
+
+$header-hover-color: #1AFFC8;
+
+@keyframes appearAnimation {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+#header {
+    position: fixed;
+    width: 100%;
+    height: 80px;
+    top: 0;
+    background-color: $header-bg-color;
+    box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 0.25);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5%;
+    z-index: 1;
+
+    .logo {
+        @include h1-text();
+        z-index: 3;
+
+        span {
+            display: inline-block;
+            animation: appearAnimation 0.5s forwards;
+            opacity: 0;
+        }
+    }
+
+    .nav_options ul {
+        @include text-primary();
+        display: flex;
+        list-style: none;
+        column-gap: 30px;
+
+        li {
+            position: relative;
+            color: $text-primary;
+
+            span {
+                position: relative;
+                line-height: 1.08;
+                white-space: nowrap;
+                transition: all 0.8s;
+                cursor: pointer;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    width: auto;
+                    height: 2px;
+                    bottom: -6px;
+                    left: 0;
+                    right: 0;
+                    opacity: 0;
+                    background-color: $header-hover-color;
+                    border-radius: 0px 0px 4px 4px;
+                    transform-origin: left center;
+                    transform: scaleX(0);
+                    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
+                    visibility: hidden;
+                }
+            }
+
+            &:hover, .active {
+                color: $header-hover-color;
+
+                span::before, &.active::before {
+                    transform: scaleX(1);
+                    visibility: visible;
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    .burgerMenu {
+        position: relative;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        z-index: 3;
+        cursor: pointer;
+
+        span {
+            display: none;
+            position: absolute;
+        }
+    }
+}
+
+
+//Responsividade
+
+@media (max-width: 1000px) {
+    #header {
+        .nav_options ul {
+            position: fixed;
+            width: 100vw;
+            height: calc(100% - 80px);
+            overflow-y: auto;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            top: 80px;
+            left: 0;
+            column-gap: 0;
+            background-color: $menu-bg-color;
+            transition: transform 1s;
+            transform: translateX(200%) rotate(90deg);
+            z-index: 2;
+
+            li {
+                position: relative;
+                margin: 25px 0;
+
+                &:first-child {
+                    margin-top: 25px;
+                }
+
+                &:last-child {
+                    margin-bottom: 45px;
+                }
+            }
+        }
+
+        .burgerMenu {
+            span {
+                display: block;
+            }
+        }
+    }
+}
+
+@media #{$mobileBig} {
+    #header {
+        height: 62px;
+
+        .nav_options ul {
+            height: calc(100% - 62px);
+            top: 62px;
+        }
+    }
+}

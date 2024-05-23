@@ -1,0 +1,83 @@
+@keyframes fillCircle {
+    from {
+      stroke-dasharray: 0 251.32741228718345; /* Circunferência do círculo */
+      stroke-dashoffset: 251.32741228718345; /* Inicia o deslocamento no comprimento total */
+    }
+
+    to {
+      stroke-dasharray: 251.32741228718345 0; /* Preenche toda a circunferência */
+      stroke-dashoffset: 0; /* Desloca para nenhum */
+    }
+}
+
+@keyframes showLogo {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes hidePage {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+.animationContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100dvh;
+
+    overflow-y: hidden;
+
+    background: linear-gradient(180deg, #4D4646 12.56%, #0921D7 216.73%);
+    background-size: 100% 400%;
+
+    div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        svg {
+            width: 150px;
+            height: 150px;
+            
+            circle {
+                fill: none;
+                stroke: rgb(255, 255, 255);
+                stroke-width: 5;
+                stroke-dasharray: 0 251.32741228718345;
+                stroke-dashoffset: 0;
+                animation: fillCircle 2s forwards;
+            }
+        }
+    
+        p {
+            position: absolute;
+            font-size: 30px;
+            text-align: center;
+            color: white;
+            left: 50%;
+            top: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            opacity: 0;
+    
+            animation: showLogo 1s forwards 2s;
+        }
+    }
+}
+
+.animationLoaded {
+    div {
+        animation: hidePage 1s forwards;
+    }
+}

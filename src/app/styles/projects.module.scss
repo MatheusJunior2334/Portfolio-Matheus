@@ -1,0 +1,32 @@
+@import '../page.module.scss';
+
+.projectsSection {
+    background: url('../../../public/Background\ Image.png');
+    background-position: center center;
+    background-repeat: repeat;
+
+    padding: $marginSection 0;
+
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+
+    h2 {
+        @include title-primary();
+        text-align: center;
+    }
+
+    .projectsDiv {
+        width: 90%;
+        margin: auto;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        justify-items: center;
+        column-gap: 10px;
+        row-gap: 24px;
+    }
+}
+
+
+//Responsividade

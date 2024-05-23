@@ -1,0 +1,267 @@
+@import '../page.module.scss';
+
+//Animation duration
+$duration: 5s;
+
+//HTML Effect
+.htmlEffect {
+    path {
+        &:nth-child(3), &:nth-child(4) {
+            animation: htmlEffect $duration alternate infinite;
+        }
+    
+        &:nth-child(1), &:nth-child(2) {
+            animation: htmlEffect2 $duration alternate infinite;
+        }
+    }
+
+    @keyframes htmlEffect {
+        from {
+            fill: #ffffff;
+        }
+
+        to {
+            fill: default;
+        }
+    }
+
+    @keyframes htmlEffect2 {
+        from {
+            fill: #E44D26aa;
+        }
+
+        to {
+            fill: default
+        }
+    }
+}
+
+//CSS Effect
+.cssEffect {
+    path {
+        &:nth-child(3), &:nth-child(4), &:nth-child(5), &:nth-child(6) {
+            animation: cssEffect $duration alternate infinite;
+        }
+    
+        &:nth-child(1), &:nth-child(2) {
+            animation: cssEffect2 $duration alternate infinite;
+        }
+    }
+
+    @keyframes cssEffect {
+        from {
+            fill: #FFF;
+        }
+
+        to {
+            fill: default;
+        }
+    }
+
+    @keyframes cssEffect2 {
+        from {
+            fill: #1572B6aa;
+        }
+
+        to {
+            fill: default
+        }
+    }
+}
+
+//Sass Effect
+.sassEffect {
+    path {
+        fill: #CB6699;
+        stroke: #CB6699;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        paint-order: stroke fill;
+        transition: fill 0.3s ease-in-out;
+    }
+}
+
+//JavaScript Effect
+.jsEffect {
+    path {
+        &:first-child {
+            animation: jsEffect $duration infinite alternate;
+        }
+    
+        &:last-child {
+            animation: jsEffect2 1s infinite alternate;
+        }
+    }
+
+    @keyframes jsEffect {
+        0% {
+            fill: #FFF;
+        }
+
+        35% {
+            fill: #F0DB4F;
+        }
+
+        100% {
+            fill: #F0DB4F;
+        }
+    }
+
+    @keyframes jsEffect2 {
+        from {
+            transform: rotate(0deg);
+        }
+
+        to {
+            transform: rotate(1deg);
+        }
+    }
+}
+
+//TypeScript Effect
+.tsEffect {
+    path {
+        &:first-child {
+            animation: tsEffect $duration infinite alternate;
+        }
+    
+        &:last-child {
+            animation: tsEffect2 $duration infinite alternate;
+        }
+    }
+
+    @keyframes tsEffect {
+        0% {
+            fill: transparent;
+        }
+
+        35% {
+            fill: #FFF;
+        }
+
+        100% {
+            fill: #FFF;
+        }
+    }
+
+    @keyframes tsEffect2 {
+        0% {
+            fill: #FFF;
+        }
+
+        35% {
+            fill: #007ACC;
+        }
+
+        100% {
+            fill: #007ACC;
+        }
+    }
+}
+
+//React JS Effect
+.reactEffect {
+    animation: reactEffect $duration linear infinite;
+
+    @keyframes reactEffect {
+        from {
+            transform: rotate(0deg);
+        }
+    
+        to {
+            transform: rotate(360deg);
+        }
+    }
+}
+
+//Next JS Effect
+
+//MySQL Effect
+.mySqlEffect {
+    path {
+        animation: mySqlEffect $duration alternate infinite ease-in;
+    }
+
+    @keyframes mySqlEffect {
+        0% {
+            fill: #00618A;
+        }
+    
+        50% {
+            fill: #E48E00;
+        }
+
+        100% {
+            fill: #FFF;
+        }
+    }
+}
+
+//JAVA Effect
+.javaEffect {
+    path {
+        &:nth-child(2), &:nth-child(4) {
+            animation: javaEffect $duration alternate infinite ease-in;
+        }
+    
+        &:nth-child(1), &:nth-child(3), &:nth-child(5) {
+            animation: javaEffect2 $duration alternate infinite ease-in;
+        }
+    }
+
+    @keyframes javaEffect {
+        from {
+            fill: #EA2D2E;
+            transform: translateY(0px);
+        }
+    
+        to {
+            fill: #F2A156;
+            transform: translateY(-5px);
+        }
+    }
+    
+    @keyframes javaEffect2 {
+        from {
+            fill: #0074BD;
+            transform: translateX(0px);
+        }
+    
+        to {
+            fill: #FFF;
+            transform: translateX(5px);
+        }
+    }
+}
+
+//Git Effect
+
+.gitEffect {
+    animation: gitEffect 10s infinite ease-in;
+
+    @keyframes gitEffect {
+        0%, 20%, 40%, 60% {
+            transform: rotateY(0deg);
+        }
+
+        80%, 100% {
+            transform: rotateY(360deg);
+        }
+    }
+}
+
+//AWS Effect
+
+
+// Remove animations
+
+@media #{$tablet} {
+    .icons {
+        animation: none;
+
+        path {
+            animation: none !important;
+        }
+    }
+}

@@ -4,26 +4,33 @@ $header-bg-color: #4D4646;
 $menu-bg-color: rgb(77 70 70 / 0.90);
 $text-primary: #FFF;
 
+$marginSection: 18px;
+
 $largerScreens: "(min-width: 1500px)";
 $desktop: "(max-width: 1280px)";
 $tablet: "(max-width: 768px)";
 $mobileBig: "(max-width: 535px)";
 $mobileNormal: "(max-width: 480px)";
 
-@mixin text-primary-font($color) {
-    font-size: 20px;
-    font-weight: 300;
-    color: $color;
+@mixin h1-text() {
+    font-size: 44px;
+    font-size: 40px;
+    font-weight: normal;
+    color: $text-primary;
 
-    @media #{$desktop} {
-        font-size: 18px;
+    @media #{$mobileBig} {
+        font-size: 34px;
+    }
+
+    @media #{$mobileNormal} {
+        font-size: 28px;
     }
 }
 
-@mixin title-font($color) {
+@mixin title-primary() {
     font-size: 36px;
     font-weight: 400;
-    color: $color;
+    color: $text-primary;
 
     @media only screen and (max-width: 1000px) {
         font-size: 34px;
@@ -31,5 +38,15 @@ $mobileNormal: "(max-width: 480px)";
 
     @media #{$mobileBig} {
         font-size: 30px;
+    }
+}
+
+@mixin text-primary() {
+    font-size: 20px;
+    font-weight: 300;
+    color: $text-primary;
+
+    @media #{$desktop} {
+        font-size: 18px;
     }
 }
