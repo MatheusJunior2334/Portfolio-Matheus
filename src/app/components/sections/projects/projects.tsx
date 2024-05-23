@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useMemo } from 'react';
 import styles from '../../../styles/projects.module.scss';
 import { ModelProjects } from './modelProjects';
 import { NostalgicWorld, HBank, Marcio, JMBank, Pecto, FireEmblem, Lony } from '../../../../data/modalInfo';
@@ -36,7 +36,9 @@ export const Projects: React.FC = () => {
         setTimeout(() => {
             setSelectedModal(null);
         }, 300)
-    }, [])
+    }, []);
+
+    const selectedProject = useMemo(() => (selectedModal !== null ? projects[selectedModal] : null), [selectedModal])
 
     return (
         <section id="projects" className={styles.projectsSection}>
@@ -53,9 +55,9 @@ export const Projects: React.FC = () => {
                 ))}
             </div>
 
-            {selectedModal !== null && projects[selectedModal].modalContent && (
+            {selectedProject && selectedProject.modalContent && (
                 <ProjectModal
-                    modal={projects[selectedModal].modalContent}
+                    modal={selectedProject.modalContent}
                     closeModal={closeModal}
                     isVisible={isVisible}
                 />

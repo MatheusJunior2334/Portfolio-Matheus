@@ -26,17 +26,19 @@ interface TechnologiesProps {
     name: string;
 }
 
-function Technologies({image, name}: TechnologiesProps) {
+const Technologies: React.FC<TechnologiesProps> = React.memo(({ image, name }) => {
     return (
         <div className={styles.technologies}>
             {image}
             <p>{name}</p>
         </div>
     )
-}
+})
 
-const createTechnologyComponent = (icon: React.ComponentType, name: string) => () => {
-    return <Technologies image={React.createElement(icon)} name={name} />
+const createTechnologyComponent = (icon: React.ComponentType, name: string) => {
+    return React.memo(() => (
+        <Technologies image={React.createElement(icon)} name={name} />
+    ));
 }
 
 export const HTML = createTechnologyComponent(technologyIcons.HTML, 'HTML');

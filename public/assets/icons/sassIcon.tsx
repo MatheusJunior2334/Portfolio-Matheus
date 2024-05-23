@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useMemo} from 'react';
 import { gsap } from 'gsap';
 import useWindowSize from '../../../src/hooks/useWindowSize';
 
@@ -15,18 +15,16 @@ interface SassIconProps {
     animate?: boolean;
 }
 
-export default function SassIcon({animate = true} : SassIconProps) {
-
-    //Códigos para realizar a animação
+const SassIcon: React.FC<SassIconProps> = React.memo(({ animate = true }) => {
     const svgRef = useRef<SVGSVGElement | null>(null);
     const { width } = useWindowSize();
 
-    const shouldAnimate = width > 768 ? animate : false;
+    const shouldAnimate = useMemo(() => width > 768 ? animate : false, [width, animate]);
 
     useEffect(() => {
         const svgElement = svgRef.current;
 
-        if (!svgElement) return;
+        if (!svgElement || !shouldAnimate) return;
 
         const path = svgElement.querySelector('path') as SVGPathElement;
         const pathLength = path.getTotalLength();
@@ -39,7 +37,7 @@ export default function SassIcon({animate = true} : SassIconProps) {
         const animatePath = () => {  
             const timeline = gsap.timeline({
                 onUpdate: () => {
-                    if (!animate) return;
+                    if (!shouldAnimate) return;
 
                     const progress = +timeline.progress();
 
@@ -67,9 +65,7 @@ export default function SassIcon({animate = true} : SassIconProps) {
             })
         }
 
-        if (shouldAnimate) {
-            animatePath();
-        }
+        animatePath();
     }, [shouldAnimate])
 
     return (
@@ -77,4 +73,6 @@ export default function SassIcon({animate = true} : SassIconProps) {
             <path d={pathData}></path>
         </svg>
     )
-}
+})
+
+export default SassIcon

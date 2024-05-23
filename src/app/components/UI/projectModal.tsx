@@ -1,6 +1,6 @@
 'use client'
 
-import React, { memo } from "react";
+import React, { memo, useMemo } from "react";
 import Image from "next/image";
 import styles from '../../styles/projectModal.module.scss';
 import { GitHubIcon, DeployIcon } from '../../../../public/assets/icons/allIcons';
@@ -9,10 +9,12 @@ import { XIcon } from "../../../../public/assets/icons/xIcon";
 
 //Código principal
 const ProjectModalComponent: React.FC<ProjectModalProps> = ({ modal, closeModal, isVisible }) => {
+    const modalClass = useMemo(() => isVisible ? styles.modalEnter: styles.modalExit, [isVisible]);
+
     return (
        <>
             {modal.map((project, index) => (
-                 <div className={`${styles.projectModalContainer} ${isVisible ? styles.modalEnter : styles.modalExit}`} key={index}>
+                 <div className={`${styles.projectModalContainer} ${modalClass}`} key={index}>
                     <div className={styles.projectModalBackdrop} onClick={closeModal} />
                     <div className={styles.projectModalMain}>
                         <button className={styles.closeModal} onClick={closeModal}>
@@ -25,7 +27,7 @@ const ProjectModalComponent: React.FC<ProjectModalProps> = ({ modal, closeModal,
                                 alt={project.projectName}
                                 width={900}
                                 height={450}
-                                priority
+                                loading="lazy"
                             />
                         </div>
             
@@ -75,7 +77,7 @@ const ProjectModalComponent: React.FC<ProjectModalProps> = ({ modal, closeModal,
                                                 alt={`Membro ${index + 1}`}
                                                 width={250}
                                                 height={250}
-                                                priority
+                                                loading="lazy"
                                             />
                                             <p>{member.name}</p>
                                         </a>

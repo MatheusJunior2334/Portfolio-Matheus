@@ -1,69 +1,46 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback, useMemo, useRef } from 'react';
 import { Fredoka } from 'next/font/google';
 import styles from '../../../styles/header.module.scss';
 
-//Menu Icons
-
+// Menu Icons
 import { BurgerIcon } from '../../../../../public/assets/icons/burgerIcon';
 import { XIcon } from '../../../../../public/assets/icons/xIcon';
 
-//Importação da Fonte
+// Importação da Fonte
+export const fredoka = Fredoka({ subsets: ['latin'], weight: ['400'] });
 
-export const fredoka = Fredoka({ subsets: ['latin'], weight: ['400'] })
+import useWindowSize from '../../../../hooks/useWindowSize';
 
 interface HeaderProps {
     text: string;
 }
 
-export const Header: React.FC<HeaderProps> = ({ text }) => {
-
-    //Declaração para indicar os caracteres utilizadas no texto principal: <Matheus Júnior/>
+export const Header: React.FC<HeaderProps> = React.memo(({ text }) => {
+    // Declaração para indicar os caracteres utilizadas no texto principal: <Matheus Júnior/>
     const [characters, setCharacters] = useState<string[]>([]);
 
     useEffect(() => {
         const charactersArray = text.split('').map(char => (char === ' ' ? '\u00A0' : char));
         setCharacters(charactersArray);
-    }, [text])
+    }, [text]);
 
-    //Função para ativar o menu lateral (no Responsivo)
+    // Função para ativar o menu lateral (no Responsivo)
     const [menuOpen, setMenuOpen] = useState<boolean>(false);
+    const handleClickMenu = useCallback(() => {
+        setMenuOpen(prevMenuOpen => !prevMenuOpen);
+    }, []);
 
-    const handleClickMenu = () => {
-        setMenuOpen(!menuOpen);
-    }
-
-    const [windowWidth, setWindowWidth] = useState<number>(0);
+    const { width: windowWidth } = useWindowSize();
 
     useEffect(() => {
-        setWindowWidth(window.innerWidth);
-        
-        //Função para verificar se o tamanho da tela é menor que 1000px
-        const handleWindowSizeChange = () => {
-            const currentWidth = window.innerWidth;
-
-            //Atualiza o valor da largura se houver alguma mudança
-            if (currentWidth !== windowWidth) {
-                setWindowWidth(currentWidth);
-            }
-
-            if (currentWidth >= 1000) {
-                setMenuOpen(false);
-            }
-        }
-
-        //Adiciona o "Event Listener" para verificar a mudança de tamanho da tela
-        window.addEventListener('resize', handleWindowSizeChange);
-
-        //Remove o "Event Listener" quando o container é fechado
-        return () => {
-            window.removeEventListener('resize', handleWindowSizeChange);
+        if (windowWidth >= 1000) {
+            setMenuOpen(false);
         }
     }, [windowWidth]);
 
-
-    //Código para brilhar o botão ao chegar numa determinada section da página
+    // Código para brilhar o botão ao chegar numa determinada section da página
     const [activeSection, setActiveSection] = useState<string>('');
 
     useEffect(() => {
@@ -71,7 +48,7 @@ export const Header: React.FC<HeaderProps> = ({ text }) => {
             const sections = document.querySelectorAll('section');
             const currentScrollPos = window.pageYOffset;
 
-            sections.forEach((section) => {
+            sections.forEach(section => {
                 const id = section.getAttribute('id');
                 const offset = section.offsetTop - 150;
                 const height = section.offsetHeight;
@@ -79,24 +56,53 @@ export const Header: React.FC<HeaderProps> = ({ text }) => {
                 if (currentScrollPos >= offset && currentScrollPos < offset + height) {
                     setActiveSection(id || '');
                 }
-            })
-        }
+            });
+        };
 
-        window.addEventListener('scroll', handleScroll);
+        const throttledScrollHandler = throttle(handleScroll, 200);
+        window.addEventListener('scroll', throttledScrollHandler);
 
         return () => {
-            window.removeEventListener('scroll', handleScroll)
-        }
-    }, [])
+            window.removeEventListener('scroll', throttledScrollHandler);
+        };
+    }, []);
 
-    //Código para rolar até a seção desejada
-    const scrollToSection = (section: string) => {
+    // Código para rolar até a seção desejada
+    const scrollToSection = useCallback((section: string) => {
         const sectionElement = document.getElementById(section);
-
         if (sectionElement) {
             sectionElement.scrollIntoView({ behavior: 'smooth' });
         }
-    }
+    }, []);
+
+    const navOptions = useMemo(() => (
+        <nav>
+            <ul style={{ transform: menuOpen ? 'translateX(0%)' : '', transition: 'transform 0.3s ease-in-out' }}>
+                {['home', 'about', 'skills', 'projects'].map(section => (
+                    <li key={section}>
+                        <span
+                            className={activeSection === section ? styles.active : ''}
+                            onClick={() => {
+                                setActiveSection(section);
+                                scrollToSection(section);
+                            }}
+                        >
+                            {section.charAt(0).toUpperCase() + section.slice(1)}
+                        </span>
+                    </li>
+                ))}
+                <li>
+                    <span>Currículo</span>
+                </li>
+            </ul>
+            {/* Burger Menu */}
+            <div className={styles.burgerMenu}>
+                <span onClick={handleClickMenu}>
+                    {menuOpen ? <XIcon /> : <BurgerIcon />}
+                </span>
+            </div>
+        </nav>
+    ), [menuOpen, activeSection, handleClickMenu, scrollToSection]);
 
     return (
         <header id={styles.header}>
@@ -108,65 +114,29 @@ export const Header: React.FC<HeaderProps> = ({ text }) => {
                 ))}
             </h1>
             <div className={styles.nav_options}>
-                <nav>
-                    <ul style={{ transform: `${menuOpen ? 'translateX(0%)' : ''} ${menuOpen ? 'rotate(0deg)' : ''}` }}>
-                        <li>
-                            <span
-                                className={activeSection === 'home' ? styles.active : ''}
-                                onClick={() => {
-                                    setActiveSection('home');
-                                    scrollToSection('home');
-                                }}
-                            >
-                                Home
-                            </span>
-                        </li>
-                        <li>
-                            <span
-                                className={activeSection === 'about' ? styles.active : ''}
-                                onClick={() => {
-                                    setActiveSection('about');
-                                    scrollToSection('about');
-                                }}
-                            >
-                                Sobre
-                            </span>
-                        </li>
-                        <li>
-                            <span
-                                className={activeSection === 'skills' ? styles.active : ''}
-                                onClick={() => {
-                                    setActiveSection('skills');
-                                    scrollToSection('skills')
-                                }}
-                            >
-                                Habilidades
-                            </span>
-                        </li>
-                        <li>
-                            <span 
-                                className={activeSection === 'projects' ? styles.active : ''}
-                                onClick={() => {
-                                    setActiveSection('projects');
-                                    scrollToSection('projects')
-                                }}
-                            >
-                                Projetos
-                            </span>
-                        </li>
-                        <li>
-                            <span>Currículo</span>
-                        </li>
-                    </ul>
-
-                    {/*Burger Menu*/}
-                    <div className={styles.burgerMenu}>
-                        <span onClick={handleClickMenu}>
-                            { menuOpen ? <XIcon /> : <BurgerIcon /> }
-                        </span>
-                    </div>
-                </nav>
+                {navOptions}
             </div>
         </header>
-    )
+    );
+});
+
+// Helper function for throttling
+function throttle(fn: (...args: any[]) => void, wait: number) {
+    let inThrottle: boolean, lastFn: ReturnType<typeof setTimeout>, lastTime: number;
+    return function(this: any, ...args: any[]) {
+        const context = this;
+        if (!inThrottle) {
+            fn.apply(context, args);
+            lastTime = Date.now();
+            inThrottle = true;
+        } else {
+            clearTimeout(lastFn);
+            lastFn = setTimeout(function() {
+                if ((Date.now() - lastTime) >= wait) {
+                    fn.apply(context, args);
+                    lastTime = Date.now();
+                }
+            }, Math.max(wait - (Date.now() - lastTime), 0));
+        }
+    };
 }
