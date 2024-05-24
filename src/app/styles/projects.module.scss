@@ -1,7 +1,7 @@
 @import '../page.module.scss';
 
 .projectsSection {
-    background: url('../../../public/Background\ Image.png');
+    background-image: url('../../../public/Background\ Image.png');
     background-position: center center;
     background-repeat: repeat;
 
@@ -20,11 +20,12 @@
         width: 90%;
         margin: auto;
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         flex-wrap: wrap;
         justify-items: center;
         column-gap: 10px;
         row-gap: 24px;
+        padding: 0 2.5%;
     }
 }
 

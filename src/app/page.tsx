@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
+import { LanguageProvider } from './contexts/languageContext'
 
 //Components
 
@@ -12,12 +13,14 @@ import { ScreenSaver } from './components/layout/screen-saver/screenSaver'
 
 export default function Home() {
   return (
-      <MainLayout>
+      <LanguageProvider>
+        <MainLayout>
         <About />
         <Skills />
         <Projects />
         {/* <ScreenSaver timeout={5 * 60 * 1000} /> */}
-      </MainLayout>
+        </MainLayout>
+      </LanguageProvider>
   )
 }
 

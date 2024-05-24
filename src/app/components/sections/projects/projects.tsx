@@ -3,10 +3,10 @@
 import React, { useState, useCallback, useMemo } from 'react';
 import styles from '../../../styles/projects.module.scss';
 import { ModelProjects } from './modelProjects';
-import { NostalgicWorld, HBank, Marcio, JMBank, Pecto, FireEmblem, Lony } from '../../../../data/modalInfo';
+import { NostalgicWorld, HBank, Marcio, JMBank, Pecto, FireEmblem, Lony } from '../../../data/modalInfo';
 import { NostalgicWorldImg, HBankImg, MarcioImg, JMBankImg, PectoImg, FireEmblemImg, LonyImg } from '../../../../../public/assets/images/projects/projectImages';
 import { ProjectModal } from '../../UI/projectModal';
-import { ModalInfo } from '../../../../types/modal';
+import { ModalInfo } from '../../../types/modal';
 
 const projects = [
     { image: NostalgicWorldImg, title: 'Nostalgic World', modalContent: NostalgicWorld },

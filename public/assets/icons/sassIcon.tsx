@@ -2,7 +2,7 @@
 
 import React, { useRef, useEffect, useMemo} from 'react';
 import { gsap } from 'gsap';
-import useWindowSize from '../../../src/hooks/useWindowSize';
+import useWindowSize from '../../../src/app/hooks/useWindowSize';
 
 import styles from '../../../src/app/styles/iconsAnimations.module.scss';
 

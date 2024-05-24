@@ -90,7 +90,7 @@ export function ScreenSaver({ timeout } : ScreenSaverProps) {
                     />
                 </div>  
                 <audio
-                    src='/aja-music.mp3'
+                    src=''
                     ref={audioRef}
                 />
             </div>

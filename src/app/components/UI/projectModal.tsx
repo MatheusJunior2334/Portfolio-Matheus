@@ -4,7 +4,7 @@ import React, { memo, useMemo } from "react";
 import Image from "next/image";
 import styles from '../../styles/projectModal.module.scss';
 import { GitHubIcon, DeployIcon } from '../../../../public/assets/icons/allIcons';
-import { ProjectModalProps } from "../../../types/modal";
+import { ProjectModalProps } from "../../types/modal";
 import { XIcon } from "../../../../public/assets/icons/xIcon";
 
 //Código principal

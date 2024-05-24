@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import { ModalInfo } from '../../../../types/modal';
+import { ModalInfo } from '../../../types/modal';
 import styles from '../../../styles/modelProjects.module.scss';
 import Image, { StaticImageData } from 'next/image';
 

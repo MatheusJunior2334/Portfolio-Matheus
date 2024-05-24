@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useCallback, useMemo, useRef } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { Fredoka } from 'next/font/google';
 import styles from '../../../styles/header.module.scss';
 
@@ -11,14 +11,18 @@ import { XIcon } from '../../../../../public/assets/icons/xIcon';
 // Importação da Fonte
 export const fredoka = Fredoka({ subsets: ['latin'], weight: ['400'] });
 
-import useWindowSize from '../../../../hooks/useWindowSize';
+import useWindowSize from '../../../hooks/useWindowSize';
 
 interface HeaderProps {
     text: string;
 }
 
+const languageOptions = {
+    pt: ['home', 'sobre', 'habilidades', 'projetos'],
+    en: ['home', 'about', 'skills', 'projects']
+};
+
 export const Header: React.FC<HeaderProps> = React.memo(({ text }) => {
-    // Declaração para indicar os caracteres utilizadas no texto principal: <Matheus Júnior/>
     const [characters, setCharacters] = useState<string[]>([]);
 
     useEffect(() => {
@@ -26,7 +30,6 @@ export const Header: React.FC<HeaderProps> = React.memo(({ text }) => {
         setCharacters(charactersArray);
     }, [text]);
 
-    // Função para ativar o menu lateral (no Responsivo)
     const [menuOpen, setMenuOpen] = useState<boolean>(false);
     const handleClickMenu = useCallback(() => {
         setMenuOpen(prevMenuOpen => !prevMenuOpen);
@@ -40,7 +43,6 @@ export const Header: React.FC<HeaderProps> = React.memo(({ text }) => {
         }
     }, [windowWidth]);
 
-    // Código para brilhar o botão ao chegar numa determinada section da página
     const [activeSection, setActiveSection] = useState<string>('');
 
     useEffect(() => {
@@ -67,7 +69,6 @@ export const Header: React.FC<HeaderProps> = React.memo(({ text }) => {
         };
     }, []);
 
-    // Código para rolar até a seção desejada
     const scrollToSection = useCallback((section: string) => {
         const sectionElement = document.getElementById(section);
         if (sectionElement) {
@@ -75,34 +76,38 @@ export const Header: React.FC<HeaderProps> = React.memo(({ text }) => {
         }
     }, []);
 
-    const navOptions = useMemo(() => (
-        <nav>
-            <ul style={{ transform: menuOpen ? 'translateX(0%)' : '', transition: 'transform 0.3s ease-in-out' }}>
-                {['home', 'about', 'skills', 'projects'].map(section => (
-                    <li key={section}>
-                        <span
-                            className={activeSection === section ? styles.active : ''}
-                            onClick={() => {
-                                setActiveSection(section);
-                                scrollToSection(section);
-                            }}
-                        >
-                            {section.charAt(0).toUpperCase() + section.slice(1)}
-                        </span>
+    const navOptions = useMemo(() => {
+        const sections = languageOptions['pt']; 
+        const ids = ['home', 'about', 'skills', 'projects'];
+
+        return (
+            <nav>
+                <ul style={{ transform: menuOpen ? 'translateX(0%)' : '', transition: 'transform 0.3s ease-in-out' }}>
+                    {sections.map((section, index) => (
+                        <li key={ids[index]}>
+                            <span
+                                className={activeSection === ids[index] ? styles.active : ''}
+                                onClick={() => {
+                                    setActiveSection(ids[index]);
+                                    scrollToSection(ids[index]);
+                                }}
+                            >
+                                {section.charAt(0).toUpperCase() + section.slice(1)}
+                            </span>
+                        </li>
+                    ))}
+                    <li>
+                        <span>Currículo</span>
                     </li>
-                ))}
-                <li>
-                    <span>Currículo</span>
-                </li>
-            </ul>
-            {/* Burger Menu */}
-            <div className={styles.burgerMenu}>
-                <span onClick={handleClickMenu}>
-                    {menuOpen ? <XIcon /> : <BurgerIcon />}
-                </span>
-            </div>
-        </nav>
-    ), [menuOpen, activeSection, handleClickMenu, scrollToSection]);
+                </ul>
+                <div className={styles.burgerMenu}>
+                    <span onClick={handleClickMenu}>
+                        {menuOpen ? <XIcon /> : <BurgerIcon />}
+                    </span>
+                </div>
+            </nav>
+        );
+    }, [menuOpen, activeSection, handleClickMenu, scrollToSection]);
 
     return (
         <header id={styles.header}>
