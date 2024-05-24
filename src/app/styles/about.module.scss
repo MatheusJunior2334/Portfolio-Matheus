@@ -2,7 +2,7 @@
 
 .aboutSection {
     width: 100%;
-    margin: 74px 0 $marginSection 0;
+    margin: 80px 0 $marginSection 0;
     padding: $marginSection 0;
    
     background-position: center center;
@@ -49,8 +49,8 @@
     }
 }
 
-@media #{$tablet} {
+@media #{$mobileBig} {
     .aboutSection {
-        
+        margin: 62px 0 $marginSection 0;
     }
 }

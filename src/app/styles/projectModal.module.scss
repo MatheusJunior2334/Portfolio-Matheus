@@ -322,7 +322,19 @@ $modalWindowSize: "(max-width: 1000px)";
 
 @media #{$tablet} {
     .projectModalContainer {
+        .projectModalBackdrop { display: none; }
+
         .projectModalMain {
+            width: 100%;
+            height: 100%;
+            border-radius: 0;
+            padding: 2.5% 5%;
+
+            .closeModal {
+                top: 2.5%;
+                right: 2.5%;
+            }
+
             &::-webkit-scrollbar {
                 width: 2px;
             }

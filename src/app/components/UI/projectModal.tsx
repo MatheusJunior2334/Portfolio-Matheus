@@ -1,6 +1,6 @@
 'use client'
 
-import React, { memo, useMemo } from "react";
+import React, { memo, useMemo, useEffect } from "react";
 import Image from "next/image";
 import styles from '../../styles/projectModal.module.scss';
 import { GitHubIcon, DeployIcon } from '../../../../public/assets/icons/allIcons';
@@ -10,6 +10,14 @@ import { XIcon } from "../../../../public/assets/icons/xIcon";
 //Código principal
 const ProjectModalComponent: React.FC<ProjectModalProps> = ({ modal, closeModal, isVisible }) => {
     const modalClass = useMemo(() => isVisible ? styles.modalEnter: styles.modalExit, [isVisible]);
+    
+    useEffect(() => {
+        if (isVisible) {
+            document.body.style.overflow = "hidden"
+        } else {
+            document.body.style.overflow = "auto"
+        }
+    }, [isVisible])
 
     return (
        <>

@@ -19,15 +19,20 @@
     .projectsDiv {
         width: 90%;
         margin: auto;
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
         justify-items: center;
-        column-gap: 10px;
+        column-gap: 4px;
         row-gap: 24px;
-        padding: 0 2.5%;
     }
 }
 
-
 //Responsividade
+
+@media (max-width: 1000px) {
+    .projectsSection {
+        .projectsDiv {
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+}
