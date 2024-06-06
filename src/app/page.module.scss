@@ -1,7 +1,7 @@
 //Variáveis
 
 $header-bg-color: #4D4646;
-$menu-bg-color: rgb(77 70 70 / 0.90);
+$menu-bg-color: rgb(77 70 70 / 0.95);
 $text-primary: #FFF;
 
 $marginSection: 18px;
@@ -17,6 +17,10 @@ $mobileNormal: "(max-width: 480px)";
     font-weight: normal;
     color: $text-primary;
 
+    @media #{$laptop} {
+        font-size: 38px;
+    }
+
     @media #{$mobileBig} {
         font-size: 34px;
     }
@@ -26,17 +30,61 @@ $mobileNormal: "(max-width: 480px)";
     }
 }
 
+@mixin home-title-text() {
+    font-size: 38px;
+    font-weight: normal;
+    color: $text-primary;
+
+    @media #{$laptop} {
+        font-size: 34px;
+    }
+
+    @media (max-width: 1000px) {
+        font-size: 32px;
+    }
+
+    @media #{$mobileBig} {
+        font-size: 28px;
+    }
+
+    @media #{$mobileNormal} {
+        font-size: 26px;
+    }
+}
+
+@mixin home-developer-text() {
+    font-size: 30px;
+    font-weight: normal;
+    color: $text-primary;
+
+    @media #{$tablet} {
+        font-size: 26px;
+    }
+
+    @media #{$mobileBig} {
+        font-size: 24px;
+    }
+
+    @media #{$mobileNormal} {
+        font-size: 22px;
+    }
+}
+
 @mixin title-primary() {
     font-size: 36px;
     font-weight: 400;
     color: $text-primary;
 
-    @media only screen and (max-width: 1000px) {
+    @media (max-width: 1000px) {
         font-size: 34px;
     }
 
     @media #{$mobileBig} {
         font-size: 30px;
+    }
+
+    @media #{$mobileNormal} {
+        font-size: 28px;
     }
 }
 

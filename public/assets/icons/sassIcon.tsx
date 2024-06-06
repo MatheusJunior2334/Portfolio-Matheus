@@ -19,7 +19,7 @@ const SassIcon: React.FC<SassIconProps> = React.memo(({ animate = true }) => {
     const svgRef = useRef<SVGSVGElement | null>(null);
     const { width } = useWindowSize();
 
-    const shouldAnimate = useMemo(() => width > 768 ? animate : false, [width, animate]);
+    const shouldAnimate = useMemo(() => width > 1000 ? animate : false, [width, animate]);
 
     useEffect(() => {
         const svgElement = svgRef.current;

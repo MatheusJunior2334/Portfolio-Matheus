@@ -32,9 +32,13 @@ $header-hover-color: #1AFFC8;
         z-index: 3;
 
         span {
-            display: inline-block;
+            display: inline-flex;
             animation: appearAnimation 0.5s forwards;
             opacity: 0;
+
+            &:hover {
+                color: #1AFFC8;
+            }
         }
     }
 
@@ -50,6 +54,10 @@ $header-hover-color: #1AFFC8;
 
             span {
                 position: relative;
+                display: flex;
+                align-items: center;
+                column-gap: 4px;
+
                 line-height: 1.08;
                 white-space: nowrap;
                 transition: all 0.8s;
@@ -112,7 +120,8 @@ $header-hover-color: #1AFFC8;
             overflow-y: auto;
             flex-direction: column;
             justify-content: flex-start;
-            align-items: center;
+            align-items: flex-start;
+            padding-left: 5%;
             top: 80px;
             left: 0;
             column-gap: 0;

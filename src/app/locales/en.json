@@ -1,3 +1,47 @@
 {
-    "en": ""
+    "home.header.home": "Home",
+    "home.header.about": "About",
+    "home.header.skills": "Skills",
+    "home.header.projects": "Projects",
+    "home.header.contact": "Contact",
+
+    "home.mainSection.presentation": "Hello! My name is Matheus",
+    "home.mainSection.developer": "I'm a Junior",
+    "home.mainSection.frontEnd": "Front-end Developer",
+    "home.mainSection.fullstack": "Fullstack Developer",
+
+    "home.about.title": "About me",
+    "home.about.text1": "My name is Matheus Júnior, I'm ",
+    "home.about.text2": " years old and I'm currently studying fullstack web programming. My passion for technology goes back to my childhood, but I only had the opportunity to study programming in 2023 and I always aim to develop in this area. In my spare time I play the flute and keyboard 🎹, my greatest passions!",
+
+    "home.skills.title": "Skills",
+
+    "home.projects.title": "My projects",
+    "home.projects.projectModal.repository": "Access repository",
+    "home.projects.projectModal.website": "Visualise the project",
+    "home.projects.projectModal.about": "About",
+    "home.projects.projectModal.techs": "Technologies",
+    "home.projects.projectModal.party": "Contributors",
+
+    "home.projectModal.nostalgic.type": "Streaming platform",
+    "home.projectModal.nostalgic.about": "This was the first project I carried out as a team at the \"Instituto PROA\". Nostalgic World is a platform focused on streaming classic films, series and cartoons, from the 1960s to the 1990s, in order to guarantee greater convenience and experience for our users.",
+
+    "home.projectModal.hbank.type": "Fintech",
+    "home.projectModal.hbank.about": "This was our second team project within the \"Instituto PROA\". H-Bank is a fintech that aims to maximise and facilitate finance for our users in every way, thus bringing greater convenience and a better user experience.",
+
+    "home.projectModal.marcio.type": "Chartering and Transport",
+    "home.projectModal.marcio.about": "This project is part of \"Corre da Quebrada\", the first individual project proposed by the \"Instituto PROA\", which aims to spread the reach of work initiatives by relatives or close people. The purpose of the project is to sell a service aimed at chartering people, in which a driver for special trips - Márcio - is hired to make a journey in the vehicle of the contractor, in other words, to hire a driver to make a particular journey for someone who has a rental vehicle but who doesn't have a permanent driver or who can't make that journey.",
+
+    "home.projectModal.jmbank.type": "Fintech",
+    "home.projectModal.jmbank.about": "This project is part of the proposal to create a Fintech entirely in React.js, a project carried out individually at the \"Instituto PROA\". JM Bank is a fintech aimed at young people and those who have difficulty organising their finances in the best possible way in every way.",
+
+    "home.projectModal.pecto.type": "Demoday - Accessibility",
+    "home.projectModal.pecto.about": "The Demoday Project aims to help people who cannot communicate verbally, such as disabled people or victims of accidents that have compromised their speech. It also caters for those who cannot use brazilian sign language (Libras). Through cards with pre-recorded voices, users can express feelings, desires or questions of formality autonomously and socialise with other people.",
+    "home.projectModal.pecto.about.obs": "Note: Python with Machine Learning was used to make the mouse cursor move based on the movement of the head, and is not applied to the platform itself.",
+
+    "home.projectModal.fireEmblem.type": "Games playback",
+    "home.projectModal.fireEmblem.about": "Autonomous project designed to reproduce the game's conversation system: \"Fire Emblem Awakening\".",
+
+    "home.projectModal.lony.type": "Women's fashion",
+    "home.projectModal.lony.about": "A duo project with the aim of improving the engagement and visibility of young girls starting out in the fashion world."
 }

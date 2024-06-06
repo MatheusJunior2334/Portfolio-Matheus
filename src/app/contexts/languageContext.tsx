@@ -1,8 +1,7 @@
 'use client'
 
 import React, { createContext, useContext, useState, useEffect } from "react";
-
-import LoadingPage from "../loading";
+import IntroAnimation from "../components/animations/introAnimation";
 
 interface LanguageContextType {
     language: string;
@@ -10,7 +9,6 @@ interface LanguageContextType {
     changeLanguage: (newLanguage: string) => void;
     isLanguageConfirmed: boolean;
     confirmLanguage: () => void;
-    handleChangeLanguage: () => void;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
@@ -23,13 +21,14 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
     const [language, setLanguage] = useState<string>(() => {
         if (typeof window !== 'undefined') {
             const savedLanguage = localStorage.getItem("language");
-            return savedLanguage || "pt"
+            return savedLanguage || "pt";
         }
         return "pt";
     });
     const [isLanguageConfirmed, setIsLanguageConfirmed] = useState<boolean>(false);
     const [translations, setTranslations] = useState<Record<string, string>>({});
     const [isLoading, setIsLoading] = useState<boolean>(true);
+    const [isFirstLoad, setIsFirstLoad] = useState<boolean>(true);
 
     useEffect(() => {
         const loadTranslations = async () => {
@@ -51,7 +50,17 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
             setIsLoading(false);
         }
 
-        loadTranslations()
+        if (isFirstLoad) {
+            const firstLoadTimeout = setTimeout(() => {
+                setIsFirstLoad(false)
+            }, 4000);
+
+            loadTranslations()
+
+            return () => clearTimeout(firstLoadTimeout);
+        } else {
+            loadTranslations()
+        }
     }, [language])
 
     const changeLanguage = (newLanguage: string) => {
@@ -65,14 +74,9 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
         setIsLanguageConfirmed(true);
     }
 
-    const handleChangeLanguage = () => {
-        setIsLanguageConfirmed(false);
-    }
-
     return (
-        <LanguageContext.Provider value={{ language, translations, changeLanguage, isLanguageConfirmed, confirmLanguage, handleChangeLanguage }}>
-            {children}
-            {isLoading && <LoadingPage />}
+        <LanguageContext.Provider value={{ language, translations, changeLanguage, isLanguageConfirmed, confirmLanguage }}>
+            {isLoading || isFirstLoad ? <IntroAnimation /> : children}
         </LanguageContext.Provider>
     )
 }
@@ -84,3 +88,5 @@ export const useLanguage = () => {
     }
     return context;
 }
+
+export type LanguageTranslations = Record<string, string>;

@@ -1,12 +1,9 @@
 @import '../page.module.scss';
 
 .aboutSection {
-    width: 100%;
-    margin: 80px 0 $marginSection 0;
-    padding: $marginSection 0;
+    position: relative;
    
-    background-position: center center;
-    background-repeat: repeat;
+    padding: $marginSection 0;
 
     .aboutContent {
         width: 90%;
@@ -17,7 +14,9 @@
             width: 55%;
             display: flex;
             flex-direction: column;
-            row-gap: 18px;
+            justify-content: space-around;
+
+            padding: 2% 0;
     
             h2 {
                 @include title-primary();
@@ -30,6 +29,14 @@
     
         .aboutRight {
             width: 45%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            img {
+                width: 90%;
+                height: auto;
+            }
         }
     }
 }
@@ -37,20 +44,30 @@
 
 //Responsividade
 
-@media (max-width: 1000px) {
+@media #{$laptop} {
     .aboutSection {
         .aboutContent {
-            flex-direction: column;
-
-            .aboutLeft, .aboutRight {
-                width: 100%;
+            .aboutLeft {
+                row-gap: 20px;
+                padding: 0;
             }
         }
     }
 }
 
-@media #{$mobileBig} {
+@media (max-width: 1000px) {
     .aboutSection {
-        margin: 62px 0 $marginSection 0;
+        .aboutContent {
+            flex-direction: column;
+            row-gap: 20px;
+
+            .aboutLeft, .aboutRight {
+                width: 100%;
+
+                img {
+                    width: 100%;
+                }
+            }
+        }
     }
 }

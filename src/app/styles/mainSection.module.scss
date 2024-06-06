@@ -1,0 +1,189 @@
+@import '../page.module.scss';
+
+// Animações
+@keyframes textEffect {
+    from {
+        background-position: 200%;
+    }
+
+    to {
+        background-position: 0%;
+    }
+}
+
+@keyframes imageEffect {
+    0% {
+        background-color: #0921D750;
+        transform: translateY(0px);
+    }
+
+    80% {
+        background-color: #1affc950;
+        transform: translateY(-10px);
+    }
+
+    100% {
+        background-color: #0921D750;
+        transform: translateY(0px);
+    }
+}
+
+// Estilização Principal
+
+.mainSection {
+    position: relative;
+    margin-top: 80px;
+    padding: 40px 0 $marginSection 0;
+
+    background-image: url('../../../public/Background\ Image.png');
+    background-position: center center;
+    background-repeat: repeat;
+
+    display: flex;
+    overflow: hidden;
+    
+    .textSide {
+        width: 60%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 5% 0 5% 5%;
+
+        h2 {
+            @include home-title-text();
+            padding-bottom: 14px;
+        }
+
+        h3 {
+            @include home-developer-text();
+
+            &.developerText {
+                background: linear-gradient(90deg, #1affc9 0%, #09a7d7 50%, #1affc9 100%,);
+                background-size: 200% 100%;
+                background-clip: text;
+                -webkit-text-fill-color: transparent;
+
+                animation: textEffect 5s linear infinite;
+
+                span:last-child {
+                    -webkit-text-fill-color: #1affc9;
+                }
+            }
+        }
+
+        .socialMediaIcons {
+            margin: auto 0;
+
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+            column-gap: 10px;
+
+            button {
+                width: 44px;
+                height: 44px;
+                background-color: #0921D7;
+                border-radius: 8px;
+                border: none;
+                transition: transform 0.3s ease;
+                cursor: pointer;
+                
+                &:nth-child(2) {
+                    padding: 4px;
+                }
+
+                svg {
+                    width: 100%;
+                    height: 100%;
+                    fill: #fff;
+                }
+
+                &:hover {
+                    transform: scale(1.05);
+                }
+            }
+        }
+    }
+
+    .imageSide {
+        width: 40%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+
+        img {
+            width: 84%;
+            height: auto;
+            border-radius: 50%;
+            background-color: #0921D750;
+
+            animation: imageEffect 10s linear infinite;
+        }
+    }
+}
+
+
+// Responsividade
+
+@media #{$laptop} {
+    .mainSection {
+        .textSide {
+            .socialMediaIcons {
+                button {
+                    width: 40px;
+                    height: 40px;
+                }
+            }
+        }
+    }
+}
+
+@media #{$tablet} {
+    .mainSection {
+        flex-direction: column;
+        row-gap: 20px;
+        padding: $marginSection 0;
+
+        .textSide, .imageSide {
+            width: 100%;
+            padding: 0 5%;
+        }
+
+        .textSide {
+            .socialMediaIcons {
+                padding-top: 20px;
+            }
+        }
+
+        .imageSide {
+            justify-content: center;
+
+            img {
+                width: 80%;
+            }
+        }
+    }
+}
+
+@media #{$mobileBig} {
+    .mainSection {
+        margin-top: 62px;
+
+        .textSide {
+            .socialMediaIcons {
+                button {
+                    width: 38px;
+                    height: 38px;
+                }
+            }
+        }
+
+        .imageSide {
+            img {
+                width: 90%;
+            }
+        }
+    }
+}

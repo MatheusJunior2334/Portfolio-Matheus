@@ -6,16 +6,18 @@ import styles from '../../styles/projectModal.module.scss';
 import { GitHubIcon, DeployIcon } from '../../../../public/assets/icons/allIcons';
 import { ProjectModalProps } from "../../types/modal";
 import { XIcon } from "../../../../public/assets/icons/xIcon";
+import { useLanguage } from "../../../app/contexts/languageContext";
 
 //Código principal
 const ProjectModalComponent: React.FC<ProjectModalProps> = ({ modal, closeModal, isVisible }) => {
+    const { translations } = useLanguage();
     const modalClass = useMemo(() => isVisible ? styles.modalEnter: styles.modalExit, [isVisible]);
     
     useEffect(() => {
         if (isVisible) {
-            document.body.style.overflow = "hidden"
+            document.body.style.overflow = "hidden";
         } else {
-            document.body.style.overflow = "auto"
+            document.body.style.overflow = "auto";
         }
     }, [isVisible])
 
@@ -48,22 +50,22 @@ const ProjectModalComponent: React.FC<ProjectModalProps> = ({ modal, closeModal,
                             <div className={styles.links}>
                                 <a href={project.projectRepository} target="_blank" rel="noopener noreferrer" className={styles.gitHub}>
                                     <GitHubIcon />
-                                    <p>Acessar repositório</p>
+                                    <p>{translations['home.projects.projectModal.repository']}</p>
                                 </a>
                                 <a href={project.projectPage} target="_blank" rel="noopener noreferrer" className={styles.deploy}>
                                     <DeployIcon />
-                                    <p>Visualizar projeto</p>
+                                    <p>{translations['home.projects.projectModal.website']}</p>
                                 </a>
                             </div>
                         </div>
             
                         <div className={styles.aboutProject}>
-                            <h3>Sobre</h3>
+                            <h3>{translations['home.projects.projectModal.about']}</h3>
                             {project.projectAbout}
                         </div>
             
                         <div className={styles.techProject}>
-                            <h3>Tecnologias</h3>
+                            <h3>{translations['home.projects.projectModal.techs']}</h3>
                             <div className={styles.techIcons}>
                                 {project.projectTechnologies.map((technology, index) => (
                                     <div key={index}>
@@ -75,16 +77,16 @@ const ProjectModalComponent: React.FC<ProjectModalProps> = ({ modal, closeModal,
             
                         {project.projectMembers && (
                             <div className={styles.partyMembers}>
-                                <h3>Colaboradores</h3>
+                                <h3>{translations['home.projects.projectModal.party']}</h3>
             
                                 <div className={styles.membersGrid}>
                                     {project.projectMembers.map((member, index) => (
-                                        <a key={index} href={member.linkedin} target="_blank" rel="noopener noreferrer" title={`Acessar Linkedin de ${member.name}`}>
+                                        <a key={index} href={member.linkedin} target="_blank" rel="noopener noreferrer" title={member.name}>
                                             <Image
                                                 src={member.image}
-                                                alt={`Membro ${index + 1}`}
-                                                width={250}
-                                                height={250}
+                                                alt={`Member ${index + 1}`}
+                                                width={300}
+                                                height={300}
                                                 loading="lazy"
                                             />
                                             <p>{member.name}</p>

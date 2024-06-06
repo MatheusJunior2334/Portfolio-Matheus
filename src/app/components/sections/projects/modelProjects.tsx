@@ -1,18 +1,16 @@
 import React, { memo } from 'react';
-import { ModalInfo } from '../../../types/modal';
 import styles from '../../../styles/modelProjects.module.scss';
 import Image, { StaticImageData } from 'next/image';
 
 interface ModelProjectsProps {
     image: StaticImageData;
     title: string;
-    modalContent?: ModalInfo;
-    onClick: (modalContent?: ModalInfo) => void;
+    onClick: () => void;
 }
 
-const ModelProjectsComponent: React.FC<ModelProjectsProps> = ({ image, title, modalContent, onClick }) => {
+const ModelProjectsComponent: React.FC<ModelProjectsProps> = ({ image, title, onClick }) => {
     return (
-        <div className={styles.modelProjects} onClick={() => onClick(modalContent)}>
+        <div className={styles.modelProjects} onClick={onClick}>
             <div className={styles.modelImage}>
                 <Image
                     src={image}

@@ -1,0 +1,66 @@
+@import '../page.module.scss';
+
+.languageSelector {
+    position: fixed;
+    transform: translate(120px, -50%);
+    right: 0;
+    top: 50%;
+    border-radius: 50%;
+    border: 0;
+    z-index: 3;
+
+    display: inline-flex;
+    width: auto;
+    height: 40px;
+    transition: transform 0.3s;
+
+    &.show {
+        transform: translate(0px, -50%);
+    }
+
+    .currentLanguage {
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        border: 0;
+        background-color: #4D4646;
+        box-shadow: 0px 2px 2px 1px rgb(0 0 0 / 0.25);
+
+        svg {
+            width: 100%;
+            height: 100%;
+            fill: #fff;
+        }
+    }
+
+    .dropdown {
+        display: flex;
+        z-index: 1000;
+
+        button {
+            width: 40px;
+            height: 40px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 0;
+            background-color: #FFFFFFBF;
+            transition: background 0.3s ease-in;
+            cursor: pointer;
+
+            svg {
+                width: 100%;
+                height: 100%;
+                opacity: 0.8;
+                transition: opacity 0.3s ease-in;
+            }
+
+            &:hover {
+                background: #f0f0f0;
+
+                svg { opacity: 1; }
+            }
+        }
+    }
+}

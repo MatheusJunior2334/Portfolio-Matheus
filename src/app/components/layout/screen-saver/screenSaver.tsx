@@ -4,41 +4,26 @@ import { useEffect, useState, useRef } from 'react';
 import Image from 'next/image';
 import styles from '../../../styles/screenSaver.module.scss';
 
-import steelyDan from '../../../../../public/Steely Dan - Aja.webp';
-import { Vinyl } from '../../../../../public/assets/images/screen-saver/vinyl';
+import { IoIosVolumeOff, IoIosVolumeHigh } from "react-icons/io";
+import { XIcon } from "../../../../../public/assets/icons/xIcon";
+import useWindowSize from '@/app/hooks/useWindowSize';
 
 interface ScreenSaverProps {
     timeout: number;
 }
 
 export function ScreenSaver({ timeout } : ScreenSaverProps) {
+    const { width } = useWindowSize();
 
-    //Código principal para ativar o ScreenSaver após um determinado tempo sem a ação do usuário
     const [active, setActive] = useState<boolean>(false);
-    const imageRef = useRef<HTMLImageElement | null>(null);
+    const [screenSaverEnabled, setScreenSaverEnabled] = useState<boolean>(true);
+    const [isMuted, setIsMuted] = useState<boolean>(false);
+    const videoRef = useRef<HTMLVideoElement | null>(null);
     const audioRef = useRef<HTMLAudioElement | null>(null);
-    const vinylRef = useRef<SVGSVGElement | null>(null);
 
     useEffect(() => {
         let timeoutId: NodeJS.Timeout | null = null;
         let animationTimeout: NodeJS.Timeout | null = null;
-
-        //Tempo de iniciação da música
-        setTimeout(() => {
-            if (audioRef.current) {
-                audioRef.current.volume = 1;
-                audioRef.current.play().catch(error => {
-                    console.error('Error playing audio', error)
-                })
-            }
-        }, 3 * 1000)
-
-        //Finalização da animação do Vinil
-        setTimeout(() => {
-            if (vinylRef.current) {
-                vinylRef.current.classList.add(`${styles.stopAnimation}`)
-            }
-        }, 8 * 60 * 1000)
 
         const resetTimeOut = () => {
             if (timeoutId) clearTimeout(timeoutId);
@@ -49,10 +34,10 @@ export function ScreenSaver({ timeout } : ScreenSaverProps) {
         }
 
         const handleActivity = () => {
+            if (active) return;
+
             if (timeoutId) clearTimeout(timeoutId);
             if (animationTimeout) clearInterval(animationTimeout);
-
-            setActive(false);
 
             resetTimeOut();
         }
@@ -73,29 +58,73 @@ export function ScreenSaver({ timeout } : ScreenSaverProps) {
             if (timeoutId) clearTimeout(timeoutId);
             if (animationTimeout) clearInterval(animationTimeout);
         }
-    }, [active])
+    }, [active, timeout])
+
+    const handleScreenSaverClick = () => {
+        setActive(false);
+        setScreenSaverEnabled(false);
+    }
+
+    const handlePlayAudio = () => {
+        setIsMuted(!isMuted);
+
+        if (videoRef.current) {
+            videoRef.current.muted = isMuted;
+            videoRef.current.volume = isMuted ? 0 : 1;
+        }
+
+        if (audioRef.current) {
+            audioRef.current.muted = isMuted;
+            audioRef.current.volume = isMuted ? 0 : 1;
+            audioRef.current.play();
+        }
+    }
 
     //Componente a ser renderizado
-    if (active) {
-        return (
-            <div id={styles.screensaver}>
-                <Vinyl ref={vinylRef}/>
-                <div>
-                    <Image
-                        src={steelyDan}
-                        alt='Steely Dan Aja Image'
-                        quality={100}
-                        ref={imageRef}
-                        priority
-                    />
-                </div>  
-                <audio
-                    src=''
-                    ref={audioRef}
-                />
-            </div>
-        )
-    } else {
-        return null;
+    if (!active) {
+        return null 
     }
+
+    return (
+        <div id={styles.screensaver}>
+            <div className={styles.screensaverBackdrop} onClick={handleScreenSaverClick} />
+
+            <div className={styles.mediaArea}>
+                {width > 768 ? (
+                    <video
+                        src='/assets/video/XenobladeChroniclesTitleScreen.mp4'
+                        ref={videoRef}
+                        autoPlay
+                        loop
+                        muted={!isMuted}
+                    />
+                ) : (
+                    <>
+                        <Image 
+                            src={'/assets/images/screen-saver/XenobladeTitleScreenGif.gif'}
+                            alt='Xenoblade Title Screen'
+                            width={1280}
+                            height={720}
+                            priority
+                        />
+
+                        <audio
+                            src={'/assets/audio/XenobladeMainTheme.mp3'}
+                            ref={audioRef}
+                            loop
+                            muted={!isMuted}
+                        />
+                    </>
+                )}
+
+                <button onClick={handlePlayAudio}>
+                    {isMuted ? <IoIosVolumeHigh/> : <IoIosVolumeOff /> }
+                </button>
+            </div>
+
+            <button className={styles.exitButton} onClick={handleScreenSaverClick}>
+                <XIcon />
+            </button>
+        </div>
+    )
 }

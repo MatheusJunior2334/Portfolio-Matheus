@@ -1,3 +1,47 @@
 {
-    "pt": ""
+    "home.header.home": "Home",
+    "home.header.about": "Sobre",
+    "home.header.skills": "Habilidades",
+    "home.header.projects": "Projetos",
+    "home.header.contact": "Contato",
+
+    "home.mainSection.presentation": "Olá! Me chamo Matheus",
+    "home.mainSection.developer": "Sou desenvolvedor",
+    "home.mainSection.frontEnd": "Front-end Junior",
+    "home.mainSection.fullstack": "Fullstack Junior",
+
+    "home.about.title": "Sobre mim",
+    "home.about.text1": "Prazer, me chamo Matheus Júnior, tenho ",
+    "home.about.text2": "anos e atualmente sou estudante de programação web fullstack. Minha paixão pela tecnologia vem desde a minha infância, mas apenas tive a oportunidade de estudar programação no ano de 2023 e viso sempre alcançar o meu desenvolvimento nessa área. Nos meus tempos vagos toco flauta e teclado 🎹, minhas maiores paixões!",
+
+    "home.skills.title": "Habilidades",
+
+    "home.projects.title": "Meu projetos",
+    "home.projects.projectModal.repository": "Acessar repositório",
+    "home.projects.projectModal.website": "Visualizar projeto",
+    "home.projects.projectModal.about": "Sobre",
+    "home.projects.projectModal.techs": "Tecnologias",
+    "home.projects.projectModal.party": "Colaboradores",
+
+    "home.projectModal.nostalgic.type": "Plataforma de streaming",
+    "home.projectModal.nostalgic.about": "Esse foi o primeiro projeto que realizei em equipe no Instituto PROA. O Nostalgic World é uma plataforma voltada para o streaming de filmes, séries e desenhos clássicos, focados desde os anos 1960 até os anos 1990, a fim de garantir uma maior comodidade e experiência ao nosso usuário.",
+
+    "home.projectModal.hbank.type": "Fintech",
+    "home.projectModal.hbank.about": "Esse foi o nosso segundo projeto em equipe dentro do Instituto PROA. A H-Bank é uma Fintech que visa maximizar e facilitar as finanças para nossos usuários em todos os sentidos, assim trazendo uma maior comodidade e melhor experiência ao mesmo.",
+
+    "home.projectModal.marcio.type": "Fretamento e Transporte",
+    "home.projectModal.marcio.about": "Esse projeto faz parte do \"Corre da Quebrada\", primeiro projeto individual proposto pelo Instituto PROA, sendo que este visa propagar o alcance de iniciativas de trabalho de parentes ou pessoas próximas. O projeto tem o propósito de vender um serviço voltado ao fretamento de pessoas, em que o motorista de viagens especiais - Márcio - é contratado a fim de realizar uma viagem para com o veículo deste contratante, ou seja, contratar um motorista para realizar uma determinada viagem para alguém que tem um veículo de locação mas que não tem um motorista fixo ou que não possa realizar essa tal viagem.",
+
+    "home.projectModal.jmbank.type": "Fintech",
+    "home.projectModal.jmbank.about": "Esse projeto faz parte da proposta de criação de uma Fintech realizada totalmente em React.js, projeto realizado individualmente no Instituto PROA. A JM Bank é uma Fintech voltado aos jovens e aqueles que tenham alguma dificuldade de organizar as suas finanças da melhor maneira possível em todos os sentidos.",
+
+    "home.projectModal.pecto.type": "Demoday - Acessibilidade",
+    "home.projectModal.pecto.about": "O Projeto Demoday visa ajudar pessoas que não conseguem se comunicar verbalmente, como PCDs ou vítimas de acidentes que comprometeram a fala. Ele também atende aqueles que não podem usar a linguagem de sinais (Libras). Através de cards com vozes pré-gravadas, os usuários podem expressar sentimentos, desejos ou questões de formalidade de maneira autônoma e socializar com outras pessoas.",
+    "home.projectModal.pecto.about.obs": "Obs.: O Python com Machine Learning foi utilizado para realizar a movimentação do cursor do mouse a partir da movimentação da cabeça, e não está aplicado na plataforma em si.",
+
+    "home.projectModal.fireEmblem.type": "Reprodução de jogos",
+    "home.projectModal.fireEmblem.about": "Projeto autônomo com o propósito de reproduzir o sistema de conversações do jogo: \"Fire Emblem Awakening\".",
+
+    "home.projectModal.lony.type": "Moda feminina",
+    "home.projectModal.lony.about": "Projeto em dupla com o próposito de melhorar o engajamento e visibilidade de garotas iniciantes no mundo da moda."
 }

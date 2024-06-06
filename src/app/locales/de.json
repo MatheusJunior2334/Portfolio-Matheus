@@ -1,3 +1,47 @@
 {
-    "de": ""
+    "home.header.home": "Startseite",
+    "home.header.about": "Über",
+    "home.header.skills": "Fertigkeiten",
+    "home.header.projects": "Projekte",
+    "home.header.contact": "Kontakt",
+
+    "home.mainSection.presentation": "Hallo! Ich heiße Matheus",
+    "home.mainSection.developer": "Ich bin ein Junior",
+    "home.mainSection.frontEnd": "Front-End-Entwickler",
+    "home.mainSection.fullstack": "Fullstack Entwickler",
+
+    "home.about.title": "Über mich",
+    "home.about.text1": "Mein Name ist Matheus Júnior, ich bin ",
+    "home.about.text2": "Jahre alt und studiere derzeit Fullstack-Webprogrammierung. Meine Leidenschaft für Technik reicht bis in meine Kindheit zurück, aber ich hatte erst 2023 die Möglichkeit, Programmierung zu studieren, und ich möchte mich in diesem Bereich immer weiterentwickeln. In meiner Freizeit spiele ich Flöte und Keyboard 🎹, meine größten Leidenschaften!",
+
+    "home.skills.title": "Fertigkeiten",
+
+    "home.projects.title": "Meine Projekte",
+    "home.projects.projectModal.repository": "Zugang zum Repository",
+    "home.projects.projectModal.website": "Visualisieren Sie das Projekt",
+    "home.projects.projectModal.about": "Über",
+    "home.projects.projectModal.techs": "Technologie",
+    "home.projects.projectModal.party": "Mitwirkende",
+
+    "home.projectModal.nostalgic.type": "Streaming-Plattform",
+    "home.projectModal.nostalgic.about": "Dies war das erste Projekt, das ich im Team des „Instituto PROA\" durchgeführt habe. Nostalgic World ist eine Plattform, die sich auf das Streaming von klassischen Filmen, Serien und Zeichentrickfilmen von den 1960er bis zu den 1990er Jahren konzentriert, um unseren Nutzern mehr Komfort und Erfahrung zu bieten.",
+
+    "home.projectModal.hbank.type": "Fintech",
+    "home.projectModal.hbank.about": "Dies war unser zweites Teamprojekt im Rahmen des „Instituto PROA\". Die H-Bank ist ein Fintech, das darauf abzielt, die Finanzierung für unsere Nutzer in jeder Hinsicht zu maximieren und zu vereinfachen und so für mehr Komfort und ein besseres Nutzererlebnis zu sorgen.",
+
+    "home.projectModal.marcio.type": "Befrachtung und Transport",
+    "home.projectModal.marcio.about": "Dieses Projekt ist Teil von „Corre da Quebrada\", dem ersten vom „Instituto PROA\" vorgeschlagenen Einzelprojekt, das darauf abzielt, die Reichweite von Arbeitsinitiativen von Verwandten oder nahestehenden Personen zu vergrößern. Ziel des Projekts ist es, eine Dienstleistung zu verkaufen, bei der ein Fahrer für besondere Fahrten - Márcio - eingestellt wird, um eine Fahrt im Fahrzeug des Unternehmers zu machen, mit anderen Worten, einen Fahrer für eine bestimmte Fahrt für jemanden zu mieten, der ein Mietfahrzeug hat, aber keinen festen Fahrer hat oder der diese Fahrt nicht machen kann.",
+
+    "home.projectModal.jmbank.type": "Fintech",
+    "home.projectModal.jmbank.about": "Dieses Projekt ist Teil des Vorschlags, ein Fintech vollständig in React.js zu erstellen, ein Projekt, das individuell am „Instituto PROA\" durchgeführt wird. JM Bank ist ein Fintech, das sich an junge Menschen und diejenigen richtet, die Schwierigkeiten haben, ihre Finanzen in jeder Hinsicht optimal zu organisieren.",
+
+    "home.projectModal.pecto.type": "Demoday - Zugänglichkeit",
+    "home.projectModal.pecto.about": "Das Demoday-Projekt soll Menschen helfen, die sich nicht verbal verständigen können, z. B. Menschen mit Behinderungen oder Opfer von Unfällen, die ihre Sprache beeinträchtigt haben. Es richtet sich auch an Menschen, die keine Gebärdensprache verwenden können (Libras). Mithilfe von Karten mit aufgezeichneten Stimmen können die Nutzer Gefühle, Wünsche oder formale Fragen selbstständig ausdrücken und mit anderen Menschen in Kontakt treten.",
+    "home.projectModal.pecto.about.obs": "Hinweis: Python mit maschinellem Lernen wurde verwendet, um den Mauszeiger auf der Grundlage der Kopfbewegung zu bewegen, und wird nicht auf die Plattform selbst angewendet.",
+
+    "home.projectModal.fireEmblem.type": "Spiele-Wiedergabe",
+    "home.projectModal.fireEmblem.about": "Autonomes Projekt zur Nachbildung des Konversationssystems aus dem Spiel: „Fire Emblem Awakening\".",
+
+    "home.projectModal.lony.type": "Damenmode",
+    "home.projectModal.lony.about": "Ein Duo-Projekt mit dem Ziel, das Engagement und die Sichtbarkeit junger Mädchen, die in der Modewelt Fuß fassen, zu verbessern."
 }

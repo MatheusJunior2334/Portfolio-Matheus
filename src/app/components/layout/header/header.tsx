@@ -7,22 +7,41 @@ import styles from '../../../styles/header.module.scss';
 // Menu Icons
 import { BurgerIcon } from '../../../../../public/assets/icons/burgerIcon';
 import { XIcon } from '../../../../../public/assets/icons/xIcon';
+import { FaWhatsapp } from "react-icons/fa";
 
 // Importação da Fonte
 export const fredoka = Fredoka({ subsets: ['latin'], weight: ['400'] });
 
 import useWindowSize from '../../../hooks/useWindowSize';
+import { useLanguage } from '../../../../app/contexts/languageContext';
+
+interface TranslationsHeaderProps  {
+    [key: string]: {
+        home: string;
+        about: string;
+        skills: string;
+        projects: string;
+        resume: string;
+    };
+}
+
+const TranslationsHeader: TranslationsHeaderProps = {
+    pt: {
+        home: 'Home',
+        about: 'Sobre',
+        skills: 'Habilidades',
+        projects: 'Projetos',
+        resume: 'Currículo'
+    }
+}
 
 interface HeaderProps {
     text: string;
 }
 
-const languageOptions = {
-    pt: ['home', 'sobre', 'habilidades', 'projetos'],
-    en: ['home', 'about', 'skills', 'projects']
-};
-
 export const Header: React.FC<HeaderProps> = React.memo(({ text }) => {
+    const { translations } = useLanguage();
+
     const [characters, setCharacters] = useState<string[]>([]);
 
     useEffect(() => {
@@ -52,7 +71,7 @@ export const Header: React.FC<HeaderProps> = React.memo(({ text }) => {
 
             sections.forEach(section => {
                 const id = section.getAttribute('id');
-                const offset = section.offsetTop - 150;
+                const offset = section.offsetTop - 200;
                 const height = section.offsetHeight;
 
                 if (currentScrollPos >= offset && currentScrollPos < offset + height) {
@@ -77,12 +96,17 @@ export const Header: React.FC<HeaderProps> = React.memo(({ text }) => {
     }, []);
 
     const navOptions = useMemo(() => {
-        const sections = languageOptions['pt']; 
+        const sections = [
+            translations['home.header.home'],
+            translations['home.header.about'],
+            translations['home.header.skills'],
+            translations['home.header.projects'],
+        ];
         const ids = ['home', 'about', 'skills', 'projects'];
 
         return (
             <nav>
-                <ul style={{ transform: menuOpen ? 'translateX(0%)' : '', transition: 'transform 0.3s ease-in-out' }}>
+                <ul style={{ transform: menuOpen ? 'translateX(0%)' : '', transition: 'transform 0.5s ease-in-out' }}>
                     {sections.map((section, index) => (
                         <li key={ids[index]}>
                             <span
@@ -92,12 +116,12 @@ export const Header: React.FC<HeaderProps> = React.memo(({ text }) => {
                                     scrollToSection(ids[index]);
                                 }}
                             >
-                                {section.charAt(0).toUpperCase() + section.slice(1)}
+                                {section}
                             </span>
                         </li>
                     ))}
                     <li>
-                        <span>Currículo</span>
+                        <span>{translations['home.header.contact']} <FaWhatsapp /></span>
                     </li>
                 </ul>
                 <div className={styles.burgerMenu}>
@@ -107,7 +131,7 @@ export const Header: React.FC<HeaderProps> = React.memo(({ text }) => {
                 </div>
             </nav>
         );
-    }, [menuOpen, activeSection, handleClickMenu, scrollToSection]);
+    }, [menuOpen, activeSection, handleClickMenu, scrollToSection, translations]);
 
     return (
         <header id={styles.header}>

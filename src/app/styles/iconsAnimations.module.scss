@@ -254,11 +254,31 @@ $duration: 5s;
 //AWS Effect
 
 
+//Phyton Effect
+
+.pythonEffect {
+    animation: pythonEffect $duration infinite alternate ease-in;
+
+    @keyframes pythonEffect {
+        0%, 20%, 40%, 60% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(180deg);
+        }
+    }
+}
+
 // Remove animations
 
-@media #{$tablet} {
+@media (max-width: 1000px) {
     .icons {
         animation: none;
+        
+        &.sassEffect {
+            path { stroke: transparent; }
+        }
 
         path {
             animation: none !important;
