@@ -12,6 +12,14 @@ $tablet: "(max-width: 768px)";
 $mobileBig: "(max-width: 535px)";
 $mobileNormal: "(max-width: 480px)";
 
+// Animações
+@keyframes textEffect {
+    from { background-position: 200%; }
+    to { background-position: 0%; }
+}
+
+// Mixin's
+
 @mixin h1-text() {
     font-size: 40px;
     font-weight: normal;
@@ -98,8 +106,46 @@ $mobileNormal: "(max-width: 480px)";
     }
 }
 
+@mixin coloured-text() {
+    background: linear-gradient(90deg, #1affc9 0%, #09a7d7 50%, #1affc9 100%,);
+    background-size: 200% 100%;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    animation: textEffect 5s linear infinite;
+}
+
+@mixin scroll-margin-top() {
+    scroll-margin-top: 80px;
+
+    @media #{$mobileBig} {
+        scroll-margin-top: 62px;
+    }
+}
+
 .mainLayout {
-    background: linear-gradient(180deg, #4D4646 12.56%, #0921D7 216.73%);
+    background: linear-gradient(180deg, #4D4646 12.56%, #0921D7 400%);
     background-position: center center;
     background-repeat: repeat;
+}
+
+
+// Loading
+
+@mixin load-spin-style() {
+    width: 50px;
+    padding: 8px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    margin: auto;
+    background: $text-primary;
+    --_m: 
+      conic-gradient(#0000 10%,#000),
+      linear-gradient(#000 0 0) content-box;
+    -webkit-mask: var(--_m);
+            mask: var(--_m);
+            mask-composite: subtract;
+    animation: spin-load 1s infinite linear;
+
+    @keyframes spin-load {to{transform: rotate(1turn)}}
 }

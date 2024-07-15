@@ -1,0 +1,60 @@
+@import '../page.module.scss';
+
+#footer {
+    position: relative;
+    padding: 10px 5%;
+    background-color: #11111150;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h6 {
+        font-size: 14px;
+        font-weight: 300;
+        color: $text-primary;
+    }
+
+    .socialMedia {
+        display: flex;
+        column-gap: 10px;
+
+        button {
+            width: 40px;
+            height: 40px;
+            background-color: #ffffff12;
+    
+            border-radius: 8px;
+            border: none;
+            transition: background 0.3s ease;
+            cursor: pointer;
+
+            &:nth-child(2) {
+                padding: 4px;
+            }
+
+            &:hover {
+                background-color: #ffffff30;
+            }
+
+            a {
+                svg {
+                    width: 100%;
+                    height: auto;
+                    fill: #ffffff;
+                }
+            }
+        }
+    }
+}
+
+// Responsividade
+
+@media #{$tablet} {
+    #footer {
+        flex-direction: column-reverse;
+        row-gap: 8px;
+
+        h6 { text-align: center; }
+    }
+}

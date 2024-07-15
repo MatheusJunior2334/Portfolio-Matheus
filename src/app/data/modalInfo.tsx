@@ -1,7 +1,7 @@
 import { ModalInfo } from '../types/modal';
 
 //Imagens dos projetos
-import { NostalgicWorldImg, HBankImg, MarcioImg, JMBankImg, PectoImg, FireEmblemImg, LonyImg } from "../../../public/assets/images/projects/projectImages";
+import { NostalgicWorldImg, HBankImg, MarcioImg, JMBankImg, PectoImg, YoutubeImg, FireEmblemImg, LonyImg } from "../../../public/assets/images/projects/projectImages";
 
 import { partyMembersData } from './membersTeam';
 
@@ -9,13 +9,21 @@ import { partyMembersData } from './membersTeam';
 import { HTML, CSS, Sass, JavaScript, TypeScript, ReactJs, NextJs, MySQL, JAVA, Python, Bootstrap, Spring } from '../components/UI/technologies';
 import { LanguageTranslations } from '../contexts/languageContext';
 
+
+const getTitle = (key: string | string[]): string => {
+    if (Array.isArray(key)) {
+        return key.join(' ');
+    }
+    return key;
+}
+
 //Nostalgic World
 export const NostalgicWorld = (translations: LanguageTranslations): ModalInfo[] => {
     return [
         {
             projectImg: NostalgicWorldImg,
             projectName: 'Nostalgic World',
-            projectType: translations['home.projectModal.nostalgic.type'],
+            projectType: getTitle(translations['home.projectModal.nostalgic.type']),
             projectRepository: 'https://github.com/MatheusJunior2334/Nostalgic-World',
             projectPage: 'https://friendly-hamster-3d8ee3.netlify.app/',
             projectAbout: (
@@ -35,7 +43,7 @@ export const HBank = (translations: LanguageTranslations): ModalInfo[] => {
         {
             projectImg: HBankImg,
             projectName: 'H-Bank',
-            projectType: translations['home.projectModal.hbank.type'],
+            projectType: getTitle(translations['home.projectModal.hbank.type']),
             projectRepository: 'https://github.com/MatheusJunior2334/H-Bank',
             projectPage: 'https://joyful-scone-16017b.netlify.app/',
             projectAbout: (
@@ -53,7 +61,7 @@ export const Marcio = (translations: LanguageTranslations): ModalInfo[] => {
         {
             projectImg: MarcioImg,
             projectName: 'Márcio - Motorista Especial',
-            projectType: translations['home.projectModal.marcio.type'],
+            projectType: getTitle(translations['home.projectModal.marcio.type']),
             projectRepository: 'https://github.com/MatheusJunior2334/Corre-da-Quebrada',
             projectPage: 'https://marcio-motorista-especial.vercel.app/',
             projectAbout: (
@@ -70,7 +78,7 @@ export const JMBank = (translations: LanguageTranslations): ModalInfo[] => {
         {
             projectImg: JMBankImg,
             projectName: 'JM Bank',
-            projectType: translations['home.projectModal.jmbank.type'],
+            projectType: getTitle(translations['home.projectModal.jmbank.type']),
             projectRepository: 'https://github.com/MatheusJunior2334/Fintech-JM_Bank',
             projectPage: 'https://fintech-jm-bank.vercel.app/',
             projectAbout: (
@@ -87,7 +95,7 @@ export const Pecto = (translations: LanguageTranslations): ModalInfo[] => {
         {
             projectImg: PectoImg,
             projectName: 'Pecto',
-            projectType: translations['home.projectModal.pecto.type'],
+            projectType: getTitle(translations['home.projectModal.pecto.type']),
             projectRepository: 'https://github.com/MatheusJunior2334/Pecto',
             projectPage: 'https://demoday-seven.vercel.app/',
             projectAbout: (
@@ -104,13 +112,30 @@ export const Pecto = (translations: LanguageTranslations): ModalInfo[] => {
     ]
 }
 
+// Youtube - Clone
+export const Youtube = (translations: LanguageTranslations): ModalInfo[] => {
+    return [
+        {
+            projectImg: YoutubeImg,
+            projectName: 'Youtube - Clone',
+            projectType: getTitle(translations['home.projectModal.youtubeClone.type']),
+            projectRepository: 'https://github.com/MatheusJunior2334/youtube-clone',
+            projectPage: 'https://youtube-clone-seven-gules.vercel.app/',
+            projectAbout: (
+                <p>{translations['home.projectModal.youtubeClone.about']}</p>
+            ),
+            projectTechnologies: [<ReactJs />, <JavaScript />, <Sass />]
+        }
+    ]
+}
+
 //Fire Emblem Awakening - Conversations
 export const FireEmblem = (translations: LanguageTranslations): ModalInfo[] => {
     return [
         {
             projectImg: FireEmblemImg,
             projectName: 'Fire Emblem Awakening - Conversations',
-            projectType: translations['home.projectModal.fireEmblem.type'],
+            projectType: getTitle(translations['home.projectModal.fireEmblem.type']),
             projectRepository: 'https://github.com/MatheusJunior2334/Fire_Emblem_Awakening-Conversations',
             projectPage: 'https://fire-emblem-awakening-conversations.vercel.app/',
             projectAbout: (
@@ -127,7 +152,7 @@ export const Lony = (translations: LanguageTranslations): ModalInfo[] => {
         {
             projectImg: LonyImg,
             projectName: 'Lony - Ladies of New York',
-            projectType: translations['home.projectModal.lony.type'],
+            projectType: getTitle(translations['home.projectModal.lony.type']),
             projectRepository: 'https://github.com/MatheusJunior2334/Lony',
             projectPage: 'https://lony-pink.vercel.app/',
             projectAbout: (

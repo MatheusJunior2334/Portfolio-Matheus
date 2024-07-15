@@ -66,6 +66,34 @@ $modalWindowSize: "(max-width: 1000px)";
 
 //Estilização principal
 
+.loadingProjectImg {
+    aspect-ratio: 1750 / 875;
+    width: 100%;
+    height: auto;
+
+    background-color: #111;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    span { @include load-spin-style(); }
+}
+
+.loadingMembers {
+    aspect-ratio: 210 / 210;
+    width: 100%;
+    height: auto;
+
+    background-color: #111;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    span { @include load-spin-style(); }
+}
+
 .projectModalContainer {
     position: fixed;
     width: 100%;
@@ -130,6 +158,7 @@ $modalWindowSize: "(max-width: 1000px)";
         }
 
         .imgProject {
+            aspect-ratio: 1750 / 875;
             grid-area: img;
 
             img {
@@ -216,9 +245,10 @@ $modalWindowSize: "(max-width: 1000px)";
 
             .techIcons {
                 display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
                 justify-items: center;
-                row-gap: 20px;
+                grid-column-gap: 10px;
+                grid-row-gap: 20px;
 
                 div {
                     width: 120px;
@@ -227,6 +257,8 @@ $modalWindowSize: "(max-width: 1000px)";
                     svg {
                         width: 70px;
                     }
+
+                    p { font-size: 18px; }
                 }
             }
         }
@@ -241,7 +273,8 @@ $modalWindowSize: "(max-width: 1000px)";
 
             .membersGrid {
                 display: grid;
-                grid-template-columns: repeat(5, 1fr);
+                grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+                grid-column-gap: 10px;
                 grid-row-gap: 20px;
                 justify-items: center;
 
@@ -285,12 +318,6 @@ $modalWindowSize: "(max-width: 1000px)";
                     }
                 }
             }
-
-            .partyMembers {
-                .membersGrid {
-                    grid-template-columns: repeat(4, 1fr);
-                }
-            }
         }
     }
 }
@@ -316,16 +343,6 @@ $modalWindowSize: "(max-width: 1000px)";
 
             .techProject {
                 padding-left: 0;
-
-                .techIcons {
-                    grid-template-columns: repeat(5, 1fr);
-                }
-            }
-
-            .partyMembers {
-                .membersGrid {
-                    grid-template-columns: repeat(3, 1fr);
-                }
             }
         }
     }
@@ -358,7 +375,7 @@ $modalWindowSize: "(max-width: 1000px)";
 
             .techProject {
                 .techIcons {
-                    grid-template-columns: repeat(4, 1fr);
+                    grid-template-columns: repeat(auto-fill, repeat(110px, 1fr));
 
                     div {
                         width: 110px;
@@ -370,12 +387,6 @@ $modalWindowSize: "(max-width: 1000px)";
                     }
                 }
             }
-
-            .partyMembers {
-                .membersGrid {
-                    grid-template-columns: repeat(2, 1fr);
-                }
-            }
         }
     }
 }
@@ -383,14 +394,11 @@ $modalWindowSize: "(max-width: 1000px)";
 @media #{$mobileBig} {
     .projectModalContainer {
         .projectModalMain {
-            .techProject {
-                .techIcons {
-                    grid-template-columns: repeat(3, 1fr);
-                }
-            }
 
             .partyMembers {
                 .membersGrid {
+                    grid-template-columns: repeat(auto-fit, repeat(180px, 1fr));
+
                     a {
                         img {
                             width: 180px;
@@ -419,14 +427,10 @@ $modalWindowSize: "(max-width: 1000px)";
                 }
             }
 
-            .techProject {
-                .techIcons {
-                    grid-template-columns: repeat(2, 1fr);
-                }
-            }
-
             .partyMembers {
                 .membersGrid {
+                    grid-template-columns: repeat(2, 1fr);
+
                     a {
                         img {
                             width: 140px;

@@ -7,7 +7,7 @@ import { AnimatedComponent } from "../../animations/animatedComponent";
 
 import Typewriter from "typewriter-effect"; 
 
-import MatheusJuniorHome from '../../../../../public/assets/images/home/MatheusJuniorHome.png';
+import MatheusJuniorHome from '../../../../../public/assets/images/home/MatheusJuniorHome.webp';
 
 import { LiaLinkedin } from "react-icons/lia";
 import { VscGithub } from "react-icons/vsc";
@@ -21,6 +21,13 @@ export const MainSection = () => {
     useEffect(() => {
         setTypewriterKey(prevKey => prevKey + 1)
     }, [translations])
+
+    const getTitle = (key: string | string[]): string => {
+        if (Array.isArray(key)) {
+            return key.join(' ');
+        }
+        return key;
+    }
 
     return (
         <section id="home" className={styles.mainSection}>
@@ -37,10 +44,10 @@ export const MainSection = () => {
                         }}
                         onInit={(typewriter) => {
                             typewriter
-                            .typeString(translations['home.mainSection.frontEnd'])
+                            .typeString(getTitle(translations['home.mainSection.frontEnd']))
                             .pauseFor(2000)
                             .deleteAll()
-                            .typeString(translations['home.mainSection.fullstack'])
+                            .typeString(getTitle(translations['home.mainSection.fullstack']))
                             .pauseFor(2000)
                             .deleteAll()
                             .start();
@@ -72,7 +79,9 @@ export const MainSection = () => {
                     alt="Matheus main picture"
                     width={800}
                     height={800}
+                    sizes="(max-width: 535px) 90vw, (max-width: 768px) 80vw, 30vw"
                     priority
+                    loading="eager"
                 />
             </AnimatedComponent>
         </section>

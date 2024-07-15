@@ -5,7 +5,7 @@ import IntroAnimation from "../components/animations/introAnimation";
 
 interface LanguageContextType {
     language: string;
-    translations: Record<string, string>;
+    translations: Record<string, string | string[]>;
     changeLanguage: (newLanguage: string) => void;
     isLanguageConfirmed: boolean;
     confirmLanguage: () => void;
@@ -26,14 +26,14 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
         return "pt";
     });
     const [isLanguageConfirmed, setIsLanguageConfirmed] = useState<boolean>(false);
-    const [translations, setTranslations] = useState<Record<string, string>>({});
+    const [translations, setTranslations] = useState<LanguageTranslations>({});
     const [isLoading, setIsLoading] = useState<boolean>(true);
     const [isFirstLoad, setIsFirstLoad] = useState<boolean>(true);
 
     useEffect(() => {
         const loadTranslations = async () => {
             setIsLoading(true);
-            let loadedTranslations: Record<string, string> = {};
+            let loadedTranslations: LanguageTranslations = {};
 
             if (language === 'pt') {
                 const response = await import('../locales/pt.json');
@@ -89,4 +89,4 @@ export const useLanguage = () => {
     return context;
 }
 
-export type LanguageTranslations = Record<string, string>;
+export type LanguageTranslations = Record<string, string | string[]>;

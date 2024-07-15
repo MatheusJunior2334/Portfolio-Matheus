@@ -22,6 +22,7 @@
     "home.projects.projectModal.about": "About",
     "home.projects.projectModal.techs": "Technologies",
     "home.projects.projectModal.party": "Contributors",
+    "home.exitButton.close": "Close",
 
     "home.projectModal.nostalgic.type": "Streaming platform",
     "home.projectModal.nostalgic.about": "This was the first project I carried out as a team at the \"Instituto PROA\". Nostalgic World is a platform focused on streaming classic films, series and cartoons, from the 1960s to the 1990s, in order to guarantee greater convenience and experience for our users.",
@@ -38,10 +39,45 @@
     "home.projectModal.pecto.type": "Demoday - Accessibility",
     "home.projectModal.pecto.about": "The Demoday Project aims to help people who cannot communicate verbally, such as disabled people or victims of accidents that have compromised their speech. It also caters for those who cannot use brazilian sign language (Libras). Through cards with pre-recorded voices, users can express feelings, desires or questions of formality autonomously and socialise with other people.",
     "home.projectModal.pecto.about.obs": "Note: Python with Machine Learning was used to make the mouse cursor move based on the movement of the head, and is not applied to the platform itself.",
+    
+    "home.projectModal.youtubeClone.type": "Website clone",
+    "home.projectModal.youtubeClone.about": "Individual project to replicate the design of the online video platform Youtube.",
 
     "home.projectModal.fireEmblem.type": "Games playback",
     "home.projectModal.fireEmblem.about": "Autonomous project designed to reproduce the game's conversation system: \"Fire Emblem Awakening\".",
 
     "home.projectModal.lony.type": "Women's fashion",
-    "home.projectModal.lony.about": "A duo project with the aim of improving the engagement and visibility of young girls starting out in the fashion world."
+    "home.projectModal.lony.about": "A duo project with the aim of improving the engagement and visibility of young girls starting out in the fashion world.",
+
+    "home.contact.title": "Contact",
+    "home.contact.name": "Name:",
+    "home.contact.nameText": "Enter your name:",
+    "home.contact.email": "E-Mail:",
+    "home.contact.emailText": "Enter your e-mail:",
+    "home.contact.message": "Message:",
+    "home.contact.messageText": "Write your message:",
+    "home.contact.send": "Send",
+    "home.contact.success": "Message sent successfully!",
+
+    "home.footer.madeBy": "All rights reserved - Made with 🩶 by him",
+
+
+    "home.screensaver.myTastesTitle": "My tastes",
+    "home.screensaver.gamesTitle": "Games",
+    "home.screensaver.gamesText": [
+        "As well as playing the keyboard and flute, I'm passionate about electronic games, especially JRPGs (Japanese RPGs), Action-Adventure games, Survival Horror and MetroidVanias. \n\r\n",
+        "I've listed some of my all-time favourite games below. If you don't know some of them, I recommend you do some research; I'm sure you'll be impressed by many of them."
+    ],
+    "home.screensaver.albumsTitle": "Albums",
+    "home.screensaver.albumsText": [
+        "Now, about music albums, here are some of my favourites. They represent the different styles of music that I enjoy and love. \n\r\n",
+        "If you don't know some of the artists or discs I've mentioned, I recommend you give them a listen; I'm sure you won't regret it."
+    ],
+    "home.screensaver.conclusionTitle": "Conclusion",
+    "home.screensaver.conclusionText": [
+        "What do you think of the things I like? As well as loving programming and other areas of technology, I have my hobbies and tastes that certainly help shape who I am and what I want to be. \n\r\n",
+        "Many of the things I consume, based on quality rather than politics, are essential for inspiring me to create and programme, for example. \n\r\n",
+        "If you've made it this far, thank you for taking the time to find out a bit more about me and my interests. See you next time!"
+    ],
+    "home.screensaver.closeScreen": "Close screen"
 }

@@ -15,26 +15,6 @@ export const fredoka = Fredoka({ subsets: ['latin'], weight: ['400'] });
 import useWindowSize from '../../../hooks/useWindowSize';
 import { useLanguage } from '../../../../app/contexts/languageContext';
 
-interface TranslationsHeaderProps  {
-    [key: string]: {
-        home: string;
-        about: string;
-        skills: string;
-        projects: string;
-        resume: string;
-    };
-}
-
-const TranslationsHeader: TranslationsHeaderProps = {
-    pt: {
-        home: 'Home',
-        about: 'Sobre',
-        skills: 'Habilidades',
-        projects: 'Projetos',
-        resume: 'Currículo'
-    }
-}
-
 interface HeaderProps {
     text: string;
 }
@@ -71,7 +51,7 @@ export const Header: React.FC<HeaderProps> = React.memo(({ text }) => {
 
             sections.forEach(section => {
                 const id = section.getAttribute('id');
-                const offset = section.offsetTop - 200;
+                const offset = section.offsetTop - 300;
                 const height = section.offsetHeight;
 
                 if (currentScrollPos >= offset && currentScrollPos < offset + height) {
@@ -101,8 +81,9 @@ export const Header: React.FC<HeaderProps> = React.memo(({ text }) => {
             translations['home.header.about'],
             translations['home.header.skills'],
             translations['home.header.projects'],
+            translations['home.header.contact']
         ];
-        const ids = ['home', 'about', 'skills', 'projects'];
+        const ids = ['home', 'about', 'skills', 'projects', 'contact'];
 
         return (
             <nav>
@@ -117,12 +98,10 @@ export const Header: React.FC<HeaderProps> = React.memo(({ text }) => {
                                 }}
                             >
                                 {section}
+                                {ids[index] == 'contact' && <FaWhatsapp />}
                             </span>
                         </li>
                     ))}
-                    <li>
-                        <span>{translations['home.header.contact']} <FaWhatsapp /></span>
-                    </li>
                 </ul>
                 <div className={styles.burgerMenu}>
                     <span onClick={handleClickMenu}>

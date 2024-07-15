@@ -1,10 +1,10 @@
 'use client'
 
-import React, { useState, useCallback, useMemo } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import styles from '../../../styles/projects.module.scss';
 import { ModelProjects } from './modelProjects';
-import { NostalgicWorld, HBank, Marcio, JMBank, Pecto, FireEmblem, Lony } from '../../../data/modalInfo';
-import { NostalgicWorldImg, HBankImg, MarcioImg, JMBankImg, PectoImg, FireEmblemImg, LonyImg } from '../../../../../public/assets/images/projects/projectImages';
+import { NostalgicWorld, HBank, Marcio, JMBank, Pecto, Youtube, FireEmblem, Lony } from '../../../data/modalInfo';
+import { NostalgicWorldImg, HBankImg, MarcioImg, JMBankImg, PectoImg, YoutubeImg, FireEmblemImg, LonyImg } from '../../../../../public/assets/images/projects/projectImages';
 import { ProjectModal } from '../../UI/projectModal';
 import { useLanguage } from '../../../../app/contexts/languageContext';
 
@@ -26,12 +26,31 @@ export const Projects: React.FC = () => {
         }, 300)
     }, []);
 
+    useEffect(() => {
+        const body = document.body;
+
+        if (isVisible) {
+            const scrollPosition = document.documentElement.scrollTop;
+
+            body.style.top = `-${scrollPosition}px`;
+            body.style.position = 'fixed'
+            body.style.overflowY = 'scroll'
+        } else {
+            const scrollPosition = -parseInt(body.style.top);
+            body.style.top = '';
+            body.style.position = 'relative'
+            body.style.overflowY = 'auto'
+            window.scrollTo(0, scrollPosition);
+        }
+    }, [isVisible])
+
     const projects = [
         { image: NostalgicWorldImg, title: 'Nostalgic World', modalContent: NostalgicWorld(translations) },
         { image: HBankImg, title: 'H-Bank', modalContent: HBank(translations) },
         { image: MarcioImg, title: 'Márcio - Motorista Especial', modalContent: Marcio(translations) },
         { image: JMBankImg, title: 'JM Bank', modalContent: JMBank(translations) },
         { image: PectoImg, title: 'Pecto', modalContent: Pecto(translations) },
+        { image: YoutubeImg, title: 'Youtube - Clone', modalContent: Youtube(translations) },
         { image: FireEmblemImg, title: 'FE Awakening - Conversations', modalContent: FireEmblem(translations) },
         { image: LonyImg, title: 'Lony - Ladies of New York', modalContent: Lony(translations) }
     ]

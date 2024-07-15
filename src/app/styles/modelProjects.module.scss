@@ -20,9 +20,11 @@
     .modelImage {
         position: relative;
         width: 100%;
-        height: 280px;
+        height: 100%;
         overflow: hidden;
         border-radius: inherit;
+
+        aspect-ratio: 1750 / 875;
 
         img {
             position: absolute;
@@ -53,50 +55,28 @@
 
 @media #{$laptop} {
     .modelProjects {
-        .modelName {
-            p {
-                padding: 4px 0;
-            }
-        }
-    }
-}
-
-@media #{$laptop} {
-    .modelProjects {
         width: 440px;
 
-        .modelImage {
-            height: 220px;
+        .modelName {
+            p { padding: 4px 0; }
         }
     }
 }
 
 @media (max-width: 1000px) {
     .modelProjects {
-        width: 580px;
-
-        .modelImage {
-            height: 280px;
-        }
+        width: 330px;
     }
 }
 
 @media #{$tablet} {
     .modelProjects {
         width: 82%;
-
-        .modelImage {
-            height: 36vw;
-        }
     }
 }
 
 @media #{$mobileBig} {
     .modelProjects {
         width: 100%;
-        
-        .modelImage {
-            height: 44vw;
-        }
     }
 }

@@ -31,16 +31,17 @@
 // Estilização Principal
 
 .mainSection {
-    position: relative;
-    margin-top: 80px;
-    padding: 40px 0 $marginSection 0;
+    @include scroll-margin-top();
 
-    background-image: url('../../../public/Background\ Image.png');
+    position: relative;
+    padding: 98px 0 $marginSection 0;
+
+    background-image: url('../../../public/BackgroundImage.webp');
     background-position: center center;
     background-repeat: repeat;
 
     display: flex;
-    overflow: hidden;
+    overflow-x: hidden;
     
     .textSide {
         width: 60%;
@@ -144,7 +145,6 @@
     .mainSection {
         flex-direction: column;
         row-gap: 20px;
-        padding: $marginSection 0;
 
         .textSide, .imageSide {
             width: 100%;
@@ -169,7 +169,7 @@
 
 @media #{$mobileBig} {
     .mainSection {
-        margin-top: 62px;
+        padding: 80px 0 $marginSection 0;
 
         .textSide {
             .socialMediaIcons {

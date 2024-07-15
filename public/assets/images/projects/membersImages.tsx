@@ -1,18 +1,18 @@
-import CassiaImage from './Cassia Santos.webp';
-import GabrielImage from './Gabriel Souza.png';
-import HitaloImage from './Hitalo Jacome.webp';
-import IgorImage from './Igor Alves.webp';
-import JonatasImage from './Jonatas Anjos.webp';
-import KetelynImage from './Ketelyn Sousa.webp';
-import MatheusImage from './Matheus Júnior.webp';
-import MilenyImage from './Mileny Nogueira.webp';
+import CassiaImage from './CassiaSantos.webp';
+import GabrielImage from './GabrielSouza.webp';
+import HitaloImage from './HitaloJacome.webp';
+import IgorImage from './IgorAlves.webp';
+import JonatasImage from './JonatasAnjos.webp';
+import KetelynImage from './KetelynSousa.webp';
+import MatheusImage from './MatheusJunior.webp';
+import MilenyImage from './MilenyNogueira.webp';
 
-import KathImage from './Kath Gomes.jpg';
-import MacielImage from './Kayque Maciel.webp';
-import WesleyImage from './Wesley Souza.webp';
-import WillianImage from './Willian Rizzo.webp';
+import KathImage from './KathGomes.webp';
+import MacielImage from './KayqueMaciel.webp';
+import WesleyImage from './WesleySouza.webp';
+import WillianImage from './WillianRizzo.webp';
 
-import BiankaImage from './Bianka Araújo.png';
+import BiankaImage from './BiankaAraujo.webp';
 
 export {
     CassiaImage, GabrielImage, HitaloImage, IgorImage, JonatasImage, KetelynImage, MatheusImage, MilenyImage,

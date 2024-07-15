@@ -22,6 +22,7 @@
     "home.projects.projectModal.about": "Sobre",
     "home.projects.projectModal.techs": "Tecnologias",
     "home.projects.projectModal.party": "Colaboradores",
+    "home.exitButton.close": "Fechar",
 
     "home.projectModal.nostalgic.type": "Plataforma de streaming",
     "home.projectModal.nostalgic.about": "Esse foi o primeiro projeto que realizei em equipe no Instituto PROA. O Nostalgic World é uma plataforma voltada para o streaming de filmes, séries e desenhos clássicos, focados desde os anos 1960 até os anos 1990, a fim de garantir uma maior comodidade e experiência ao nosso usuário.",
@@ -39,9 +40,44 @@
     "home.projectModal.pecto.about": "O Projeto Demoday visa ajudar pessoas que não conseguem se comunicar verbalmente, como PCDs ou vítimas de acidentes que comprometeram a fala. Ele também atende aqueles que não podem usar a linguagem de sinais (Libras). Através de cards com vozes pré-gravadas, os usuários podem expressar sentimentos, desejos ou questões de formalidade de maneira autônoma e socializar com outras pessoas.",
     "home.projectModal.pecto.about.obs": "Obs.: O Python com Machine Learning foi utilizado para realizar a movimentação do cursor do mouse a partir da movimentação da cabeça, e não está aplicado na plataforma em si.",
 
+    "home.projectModal.youtubeClone.type": "Clone de website",
+    "home.projectModal.youtubeClone.about": "Projeto individual com o propósito de replicar o design da plataforma de vídeos online Youtube.",
+
     "home.projectModal.fireEmblem.type": "Reprodução de jogos",
     "home.projectModal.fireEmblem.about": "Projeto autônomo com o propósito de reproduzir o sistema de conversações do jogo: \"Fire Emblem Awakening\".",
 
     "home.projectModal.lony.type": "Moda feminina",
-    "home.projectModal.lony.about": "Projeto em dupla com o próposito de melhorar o engajamento e visibilidade de garotas iniciantes no mundo da moda."
+    "home.projectModal.lony.about": "Projeto em dupla com o próposito de melhorar o engajamento e visibilidade de garotas iniciantes no mundo da moda.",
+
+    "home.contact.title": "Contato",
+    "home.contact.name": "Nome:",
+    "home.contact.nameText": "Digite seu nome:",
+    "home.contact.email": "E-Mail:",
+    "home.contact.emailText": "Digite seu e-mail:",
+    "home.contact.message": "Mensagem:",
+    "home.contact.messageText": "Escreva a sua mensagem:",
+    "home.contact.send": "Enviar",
+    "home.contact.success": "Mensagem enviada com sucesso!",
+
+    "home.footer.madeBy": "Todos os direitos reservados - Feito com 🩶 pelo mesmo",
+
+
+    "home.screensaver.myTastesTitle": "Meus gostos",
+    "home.screensaver.gamesTitle": "Games",
+    "home.screensaver.gamesText": [
+        "Além de tocar teclado e flauta, sou apaixonado por jogos eletrônicos, especialmente JRPGs (RPGs Japoneses), jogos de Ação e Aventura, Survival Horror e MetroidVanias. \n\r\n",
+        "A seguir, listei alguns dos meus jogos favoritos de todos os tempos. Se você não conhece alguns deles, recomendo que dê uma pesquisada; tenho certeza de que você vai se impressionar com muitos deles."
+    ],
+    "home.screensaver.albumsTitle": "Álbuns",
+    "home.screensaver.albumsText": [
+        "Agora, sobre álbuns musicais, aqui estão alguns dos meus favoritos. Eles representam os diferentes estilos musicais que aprecio e adoro. \n\r\n",
+        "Se você não conhece alguns dos artistas ou discos que mencionei, recomendo que os ouça; tenho certeza de que não vai se arrepender."
+    ],
+    "home.screensaver.conclusionTitle": "Conclusão",
+    "home.screensaver.conclusionText": [
+        "O que achou das coisas que gosto? Além de adorar programação e outras áreas da tecnologia, tenho meus hobbies e gostos que, com certeza, ajudam a moldar quem sou e o que almejo ser. \n\r\n",
+        "Muitas das coisas que consumo, baseadas na qualidade e não em questões políticas, são essenciais para me inspirar a criar e programar, por exemplo. \n\r\n",
+        "Se você chegou até aqui, obrigado por dedicar um pouco do seu tempo para conhecer um pouco mais sobre mim e meus interesses. Até a próxima!"
+    ],
+    "home.screensaver.closeScreen": "Fechar tela"
 }

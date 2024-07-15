@@ -22,6 +22,7 @@
     "home.projects.projectModal.about": "Über",
     "home.projects.projectModal.techs": "Technologie",
     "home.projects.projectModal.party": "Mitwirkende",
+    "home.exitButton.close": "Schließen",
 
     "home.projectModal.nostalgic.type": "Streaming-Plattform",
     "home.projectModal.nostalgic.about": "Dies war das erste Projekt, das ich im Team des „Instituto PROA\" durchgeführt habe. Nostalgic World ist eine Plattform, die sich auf das Streaming von klassischen Filmen, Serien und Zeichentrickfilmen von den 1960er bis zu den 1990er Jahren konzentriert, um unseren Nutzern mehr Komfort und Erfahrung zu bieten.",
@@ -39,9 +40,44 @@
     "home.projectModal.pecto.about": "Das Demoday-Projekt soll Menschen helfen, die sich nicht verbal verständigen können, z. B. Menschen mit Behinderungen oder Opfer von Unfällen, die ihre Sprache beeinträchtigt haben. Es richtet sich auch an Menschen, die keine Gebärdensprache verwenden können (Libras). Mithilfe von Karten mit aufgezeichneten Stimmen können die Nutzer Gefühle, Wünsche oder formale Fragen selbstständig ausdrücken und mit anderen Menschen in Kontakt treten.",
     "home.projectModal.pecto.about.obs": "Hinweis: Python mit maschinellem Lernen wurde verwendet, um den Mauszeiger auf der Grundlage der Kopfbewegung zu bewegen, und wird nicht auf die Plattform selbst angewendet.",
 
+    "home.projectModal.youtubeClone.type": "Website-Klon",
+    "home.projectModal.youtubeClone.about": "Individuelles Projekt zur Nachbildung des Designs der Online-Videoplattform Youtube.",
+
     "home.projectModal.fireEmblem.type": "Spiele-Wiedergabe",
     "home.projectModal.fireEmblem.about": "Autonomes Projekt zur Nachbildung des Konversationssystems aus dem Spiel: „Fire Emblem Awakening\".",
 
     "home.projectModal.lony.type": "Damenmode",
-    "home.projectModal.lony.about": "Ein Duo-Projekt mit dem Ziel, das Engagement und die Sichtbarkeit junger Mädchen, die in der Modewelt Fuß fassen, zu verbessern."
+    "home.projectModal.lony.about": "Ein Duo-Projekt mit dem Ziel, das Engagement und die Sichtbarkeit junger Mädchen, die in der Modewelt Fuß fassen, zu verbessern.",
+
+    "home.contact.title": "Kontakt",
+    "home.contact.name": "Name:",
+    "home.contact.nameText": "Geben Sie Ihren Namen ein:",
+    "home.contact.email": "E-Mail:",
+    "home.contact.emailText": "Geben Sie Ihre E-Mail Adresse ein:",
+    "home.contact.message": "Nachricht:",
+    "home.contact.messageText": "Schreiben Sie Ihre Nachricht:",
+    "home.contact.send": "Senden Sie",
+    "home.contact.success": "Nachricht erfolgreich gesendet!",
+
+    "home.footer.madeBy": "Alle Rechte vorbehalten - Hergestellt mit 🩶 von ihm",
+
+
+    "home.screensaver.myTastesTitle": "Meine Vorlieben",
+    "home.screensaver.gamesTitle": "Spiele",
+    "home.screensaver.gamesText": [
+        "Ich spiele nicht nur Keyboard und Flöte, sondern begeistere mich auch für elektronische Spiele, vor allem für JRPGs (japanische Rollenspiele), Action-Adventure-Spiele, Survival-Horror und Metroid-Vanias. \n\r\n",
+        "Im Folgenden habe ich einige meiner absoluten Lieblingsspiele aufgelistet. Wenn Sie einige von ihnen nicht kennen, empfehle ich Ihnen, ein wenig zu recherchieren; ich bin sicher, dass Sie von vielen beeindruckt sein werden."
+    ],
+    "home.screensaver.albumsTitle": "Alben",
+    "home.screensaver.albumsText": [
+        "Nun zu den Musikalben: Hier sind einige meiner Lieblingsalben. Sie repräsentieren die verschiedenen Musikstile, die ich mag und liebe. \n\r\n",
+        "Wenn Sie einige der genannten Künstler oder Platten noch nicht kennen, empfehle ich Ihnen, sie sich einmal anzuhören; ich bin sicher, Sie werden es nicht bereuen."
+    ],
+    "home.screensaver.conclusionTitle": "Schlussfolgerung",
+    "home.screensaver.conclusionText": [
+        "Was denkst du über die Dinge, die ich mag? Ich liebe nicht nur das Programmieren und andere Bereiche der Technik, sondern habe auch meine Hobbys und Vorlieben, die sicherlich dazu beitragen, wer ich bin und was ich werden möchte. \n\r\n",
+        "Viele der Dinge, die ich konsumiere und die eher auf Qualität als auf Politik basieren, sind wichtig, um mich zu inspirieren, z. B. beim Erstellen und Programmieren. \n\r\n",
+        "Wenn Sie es bis hierher geschafft haben, danke ich Ihnen, dass Sie sich die Zeit genommen haben, etwas mehr über mich und meine Interessen herauszufinden. Bis zum nächsten Mal!"
+    ],
+    "home.screensaver.closeScreen": "Bildschirm schließen"
 }

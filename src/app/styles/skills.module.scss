@@ -1,6 +1,9 @@
 @import '../page.module.scss';
 
 .skillsSection {
+    @include scroll-margin-top();
+
+    position: relative;
     width: 100%;
     padding: $marginSection 0;
     background-color: rgb(217 217 217 / 0.05);
@@ -18,14 +21,14 @@
         width: 90%;
         display: grid;
         justify-items: center;
-        grid-template-columns: repeat(5, 1fr);
-        grid-template-rows: auto;
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        grid-column-gap: 10px;
         row-gap: 22px;
         margin: auto;
     }
 }
 
-// Responsivity
+// Responsividade
 
 @media #{$largerScreens} {
     .skillsSection {
@@ -35,26 +38,10 @@
     }
 }
 
-@media (max-width: 1000px) {
-    .skillsSection {
-        .technologies {
-            grid-template-columns: repeat(4, 1fr);
-        }
-    }
-}
-
-@media #{$tablet} {
-    .skillsSection {
-        .technologies {
-            grid-template-columns: repeat(3, 1fr);
-        }
-    }
-}
-
 @media #{$mobileBig} {
     .skillsSection {
         .technologies {
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(auto-fill, minmax(125px, 1fr));
         }
     }
 }

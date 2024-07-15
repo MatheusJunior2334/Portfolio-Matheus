@@ -1,7 +1,10 @@
 @import '../page.module.scss';
 
 .projectsSection {
-    background-image: url('../../../public/Background\ Image.png');
+    @include scroll-margin-top();
+
+    position: relative;
+    background-image: url('../../../public/BackgroundImage.webp');
     background-position: center center;
     background-repeat: repeat;
 
@@ -20,16 +23,32 @@
         width: 90%;
         margin: auto;
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(auto-fill, minmax(560px, 1fr));
         justify-items: center;
-        column-gap: 4px;
+        grid-column-gap: 10px;
         row-gap: 24px;
     }
 }
 
 //Responsividade
 
+@media #{$laptop} {
+    .projectsSection {
+        .projectsDiv {
+            grid-template-columns: repeat(auto-fill, minmax(440px, 1fr));
+        }
+    }
+}
+
 @media (max-width: 1000px) {
+    .projectsSection {
+        .projectsDiv {
+            grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+        }
+    }
+}
+
+@media #{$tablet} {
     .projectsSection {
         .projectsDiv {
             grid-template-columns: repeat(1, 1fr);

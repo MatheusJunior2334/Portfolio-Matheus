@@ -15,9 +15,10 @@ const ModelProjectsComponent: React.FC<ModelProjectsProps> = ({ image, title, on
                 <Image
                     src={image}
                     alt={title}
-                    width={650}
-                    height={325}
-                    priority
+                    width={560}
+                    height={280}
+                    sizes='(max-width: 535px) 80vw, (max-width: 768px) 75vw, (max-width: 1000px) 330px, (max-width: 1280px) 440px, 560px'
+                    loading='lazy'
                 />
             </div>
             <div className={styles.modelName}>

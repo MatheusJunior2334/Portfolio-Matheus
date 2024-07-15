@@ -1,15 +1,12 @@
 'use client'
 
 import React, { useState, useEffect } from 'react';
-import Image from 'next/image';
 import { useLanguage } from '../../../../app/contexts/languageContext';
 import styles from '../../../styles/about.module.scss';
 
-import DunbanGif from '../../../../../public/assets/images/home/DunbanGif.gif';
-
 export function About() {
     const { translations } = useLanguage();
-    const [age, setAge] = useState<number>(20)
+    const [age, setAge] = useState<number>(20);
 
     const calculateAge = (birthDate: string) => {
         try {
@@ -42,13 +39,9 @@ export function About() {
                 </div>
                 
                 <div className={styles.aboutRight}>
-                    <Image
-                        src={DunbanGif}
-                        alt='Dunban Gif'
-                        width={800}
-                        height={450}
-                        priority
-                    />
+                    <video autoPlay loop muted controls={false}>
+                        <source src="/assets/video/DunbanVideo.mp4" type="video/mp4" />
+                    </video>
                 </div>
             </div>
         </section>

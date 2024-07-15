@@ -1,0 +1,291 @@
+@import '../page.module.scss';
+
+// Animações
+
+@keyframes jello {
+    0%,
+    11.1%, 
+    to { transform: translateZ(0); }
+    22.2% { transform: skewX(-12.5deg) skewY(-12.5deg); }
+    33.3% { transform: skewX(6.25deg) skewY(6.25deg); }
+    44.4% { transform: skewX(-3.125deg) skewY(-3.125deg); }
+    55.5% { transform: skewX(1.5625deg) skewY(1.5625deg); }
+    66.6% { transform: skewX(-0.78125deg) skewY(-0.78125deg); }
+    77.7% { transform: skewX(0.390625deg) skewY(0.390625deg); }
+    88.8% { transform: skewX(-0.1953125deg) skewY(-0.1953125deg); }
+}
+
+// Estilização principal
+
+.contactSection {
+    @include scroll-margin-top();
+
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    padding: $marginSection 5%;
+    background-color: rgba(217, 217, 217, 0.05);
+
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+
+
+    h2 {
+        @include title-primary();
+    }
+
+    .contactContent {
+        display: flex;
+        height: 370px;
+
+        .contactLeftSide {
+            width: 50%;
+            
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+
+            .video {
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+
+                video {
+                    width: auto;
+                    max-width: 95%;
+                    height: auto;
+                    max-height: 100%;
+                }
+    
+                p {
+                    @include coloured-text();
+                    font-size: 24px;
+                }
+            }
+
+            .socialMedia {
+                display: flex;
+                height: 100%;
+
+                .linksSide {
+                    width: 100px;
+
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-around;
+                    grid-gap: 2%;
+
+                    button {
+                        width: 100%;
+                        height: 100px;
+                        background-color: #ffffff12;
+    
+                        border-radius: 8px;
+                        border: none;
+                        transition: background 0.3s ease;
+                        cursor: pointer;
+    
+                        a {
+                            width: 100%;
+                            height: 100%;
+
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            justify-content: space-evenly;
+                            text-align: center;
+    
+                            text-decoration: none;
+    
+                            svg {
+                                width: 45px;
+                                height: auto;
+                                fill: #ffffff;
+                            }
+    
+                            h4 {
+                                font-size: 16px;
+                                font-weight: 300;
+                                color: $text-primary;
+                            }
+                        }
+    
+                        &:hover {
+                            background-color: #ffffff30;
+                        }
+                    }    
+                }
+                
+                figure {
+                    width: calc(100% - 100px);
+
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    img {
+                        width: auto;
+                        max-width: 95%;
+                        height: auto;
+                        max-height: 100%;
+                    }
+                }
+            }
+        }
+    
+        .contactRightSide {
+            width: 50%;
+            display: flex;
+    
+            form {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+                row-gap: 10px;
+                padding-bottom: 30px;
+    
+                div {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    row-gap: 2px;
+    
+                    label {
+                        @include text-primary();
+                        font-weight: 400;
+                    }
+    
+                    input {
+                        all: unset;
+                        font-weight: 300;
+                        font-family: inherit;
+                        background-color: #fff;
+                        font-size: 16px;
+                        min-height: 30px;
+                        padding: 4px;
+                        border-radius: 8px;
+                    }
+                    
+                    textarea {
+                        all: unset;
+                        font-weight: 300;
+                        background-color: #fff;
+                        font-size: 16px;
+                        padding: 4px;
+                        min-height: 150px;
+                        resize: none;
+                        border-radius: 8px;
+                    }
+
+                    input:focus, textarea:focus {
+                        background-color: #ffffffdd;
+                    }
+                }
+
+                button {
+                    @include text-primary();
+                    position: relative;
+                    all: unset;
+
+                    cursor: pointer;
+
+                    span {
+                        position: absolute;
+                        color: #fff;
+                        background-color: #111;
+                        padding: 8px 40px;
+                        border-radius: 8px;
+                        transition: background-color 0.3s;
+                    }
+
+                    &:hover span {
+                        animation: jello 0.8s;
+                        background-color: #000;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Responsividade
+
+@media (max-width: 1000px) {
+    .contactSection {
+        .contactContent {
+            height: auto;
+            flex-direction: column;
+            row-gap: 20px;
+
+            .contactLeftSide, .contactRightSide {
+                width: 100%;
+            }
+
+            .contactLeftSide {
+                .video {
+                    row-gap: 4px;
+
+                    video {
+                        width: 100%;
+                        max-width: none;
+                        height: auto;
+                    }
+
+                    p {
+                        font-size: 22px;
+                    }
+                }
+
+                .socialMedia {
+                    height: auto;
+
+                    .linksSide {
+                        justify-content: space-evenly;
+                    }
+
+                    figure {
+                        img {
+                            max-width: 60%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media #{$tablet} {
+    .contactSection {
+        .contactContent {
+            .contactLeftSide {
+                .video {
+                    p {
+                        font-size: 20px;
+                    }
+                }
+
+                .socialMedia {
+                    flex-direction: column;
+
+                    .linksSide {
+                        width: 100%;
+
+                        display: grid;
+                        grid-template-columns: repeat(3, 1fr);
+                        
+                        button {
+                            width: auto;
+                        }
+                    }
+
+                    figure { display: none; }
+                }
+            }
+        }
+    }
+}

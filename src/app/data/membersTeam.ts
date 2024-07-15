@@ -68,6 +68,6 @@ export const partyMembersData: Record<string, partyMembers> = {
     Bianka: {
         image: Members.BiankaImage,
         name: 'Bianka Araújo',
-        linkedin: '',
+        linkedin: 'https://www.linkedin.com/in/biankasaraujo/',
     },
 }

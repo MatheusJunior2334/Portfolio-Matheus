@@ -2,77 +2,208 @@
 
 //Estilizações principais
 
-#screensaver {
-    position: fixed;
-    top: 0;
-    left: 0;
+.loadingAlbum {
+    aspect-ratio: 150 / 150;
     width: 100%;
-    height: 100%;
-    z-index: 10;
+    height: auto;
+    background-color: #111;
 
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
 
-    .screensaverBackdrop {
-        position: absolute;
+    span { @include load-spin-style(); }    
+}
+
+#screensaver {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(77 70 70 / 0.95);
+
+    top: 0;
+    left: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+
+    .screensaverContent {
+        position: relative;
         width: 100%;
         height: 100%;
-        left: 0;
-        top: 0;
-        z-index: -1;
-        background-color: rgb(77 70 70 / 0.80);
-    }
 
-    .mediaArea {
-        position: relative;
-        width: 70%;
-        
         display: flex;
-        justify-content: center;
+        flex-direction: column;
+        justify-content: flex-start;
         align-items: center;
+        overflow-y: auto;
+        z-index: 1;
+        padding: 2% 0;
 
-        video, img {
-            width: 100%;
-            height: auto;
-            max-height: 98vh;
-        }
-
-        button {
-            position: absolute;
-            right: 2px;
-            bottom: 2px;
-            background-color: transparent;
+        .exitButton {
+            position: fixed;
+            display: flex;
+            top: 2%;
+            right: 2%;
+            background: linear-gradient(180deg, #5c1212 0%, rgb(150 0 0 / 0.95) 100%);
+            outline: none;
             border: none;
+            padding: 5px;
+            box-sizing: content-box;
+    
+            border-radius: 4px;
+            transition: all 0.3s;
+            z-index: 5;
             cursor: pointer;
-
-            svg {
-                width: 30px;
-                height: 30px;
-                fill: #fff;
+    
+            &:hover {
+                transform: scale(1.1);
             }
         }
-    }
 
-    .exitButton {
-        position: fixed;
-        display: flex;
-        top: 2%;
-        right: 2%;
-        background: linear-gradient(180deg, #5c1212 0%, rgb(150 0 0 / 0.95) 100%);
-        outline: none;
-        border: none;
-        padding: 5px;
-        box-sizing: content-box;
+        .xenobladeIcon {
+            width: 100px;
+            height: auto;
+            position: absolute;
+            left: 2%;
+            top: 2%;
+            z-index: 1;
+        }
 
-        border-radius: 4px;
-        transition: all 0.3s;
-        z-index: 5;
-        cursor: pointer;
+        .mediaArea {
+            position: relative;
+            width: 70%;
+            height: auto;
+            
+            display: flex;
+    
+            video, img {
+                width: 100%;
+                height: auto;
+                max-height: 100vh;
+            }
 
-        &:hover {
-            transform: scale(1.1);
+            span {
+                @include text-primary();
+                @include coloured-text();
+                width: 24px;
+                writing-mode: vertical-lr;
+                text-align: center;
+            }
+    
+            button {
+                position: absolute;
+                right: 2px;
+                bottom: 2px;
+                background-color: transparent;
+                border: none;
+                cursor: pointer;
+    
+                svg {
+                    width: 30px;
+                    height: 30px;
+                    fill: #fff;
+                }
+            }
+        }
+
+        .tastesArea {
+            width: 90%;
+            padding-top: $marginSection;
+
+            h2 { @include title-primary(); }
+
+            h3 { @include home-developer-text(); @include coloured-text(); padding: 20px 0 }
+
+            p { @include text-primary(); white-space: pre-line; }
+
+            .games, .albums {
+                .gamesGrid, .albumsGrid {
+                    display: grid;
+                    gap: 10px;
+                    justify-items: center;
+                    margin: $marginSection 0;
+                    
+                    &.gamesGrid {
+                        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                    }
+
+                    &.albumsGrid {
+                        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                    }
+
+                    .gameModel, .albumModel {
+                        position: relative;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+
+                        img {
+                            width: 100%;
+                            height: auto;
+                            transition: filter 0.3s ease;
+                        }
+    
+                        span {
+                            font-size: 16px;
+                            font-weight: 300;
+                            color: $text-primary;
+
+                            position: absolute;
+                            z-index: 1;
+                            opacity: 0;
+                            transition: opacity 0.3s ease;
+                            text-align: center;
+                        }
+
+                        &:hover {
+                            img {
+                                filter: brightness(0.1);
+                            }
+
+                            span {
+                                opacity: 1;
+                            }
+                        }
+                    }
+
+                }
+            }
+
+            .conclusion {
+                p {
+                    padding-top: $marginSection;
+                }
+
+                .closePage {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+    
+                    button {
+                        @include text-primary();
+                        font-family: inherit;
+                        font-size: 18px;
+                        background: linear-gradient(180deg, #5c1212 0%, rgb(150 0 0 / 0.95) 100%);
+                        outline: none;
+                        border: none;
+                        padding: 8px 16px;
+                        box-sizing: content-box;
+                
+                        border-radius: 8px;
+                        transition: all 0.3s;
+                        cursor: pointer;
+    
+                        &:hover {
+                            transform: scale(1.1);
+                        }
+                    }
+    
+                    img { width: 80px; height: auto; }
+                }
+            }
         }
     }
 }
@@ -81,16 +212,54 @@
 
 @media #{$laptop} {
     #screensaver {
-        .mediaArea {
-            width: 74%;
+        .screensaverContent {
+
+            .xenobladeIcon { display: none; }
+
+            .mediaArea {
+                width: 74%;
+            }
+
+            .tastesArea {
+                .games, .albums {
+                    .gamesGrid, .albumsGrid {
+                        &.gamesGrid {
+                            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                        }
+                    }
+                }
+            }
         }
     }
 }
 
 @media #{$tablet} {
     #screensaver {
-        .mediaArea {
-            width: 90%;
+        .screensaverContent {
+
+            &::-webkit-scrollbar {
+                width: 2px;
+            }
+            .mediaArea {
+                width: 90%;
+                flex-direction: row-reverse;
+
+                img {
+                    width: calc(100% - 20px);
+                }
+
+                span { width: auto; font-size: 16px; transform: rotate(180deg); }
+            }
+
+            .tastesArea {
+                .games, .albums {
+                    .gamesGrid, .albumsGrid {
+                        &.gamesGrid {
+                            grid-template-columns: repeat(2, 1fr);
+                        }
+                    }
+                }
+            }
         }
     }
 }
