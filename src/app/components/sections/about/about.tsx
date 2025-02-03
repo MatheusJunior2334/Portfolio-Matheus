@@ -33,9 +33,10 @@ export function About() {
         <section id="about" className={styles.aboutSection}>
             <div className={styles.aboutContent}>
                 <div className={styles.aboutLeft}>
-                <h2>{translations['home.about.title']}</h2>
+                    <h2>{translations['home.about.title']}</h2>
 
-                <p>{translations['home.about.text1']} {age} {translations['home.about.text2']}</p>
+                    <p>{translations['home.about.text1']} {age} {translations['home.about.text2']}</p>
+                    <p>{translations['home.about.text3']}</p>
                 </div>
                 
                 <div className={styles.aboutRight}>

@@ -10,7 +10,7 @@ export const Footer = () => {
 
     return (
         <footer id={styles.footer}>
-            <h6>© 2024 Matheus Júnior - {translations['home.footer.madeBy']}</h6>
+            <h6>© 2025 Matheus Júnior - {translations['home.footer.madeBy']}</h6>
 
             <div className={styles.socialMedia}>
                 <button title='LinkedIn' aria-label='Access LinkedIn'>

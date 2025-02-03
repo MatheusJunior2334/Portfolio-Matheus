@@ -7,8 +7,10 @@ import { IoIosVolumeOff, IoIosVolumeHigh } from "react-icons/io";
 import { XIcon } from "../../../../../public/assets/icons/xIcon";
 import useWindowSize from '@/app/hooks/useWindowSize';
 import { GameAlbumProps } from '@/app/types/gameAlbum';
+import { JudokaImageProps } from '@/app/types/judokaImage';
 import { GamesContent } from '@/app/data/gamesData';
 import { AlbumsContent } from '@/app/data/albumsData';
+import { JudokasContent } from '@/app/data/judokasData';
 import { useLanguage } from '@/app/contexts/languageContext';
 
 const Image = lazy(() => import('next/image'));
@@ -23,9 +25,8 @@ const GameModel = ({ src, name }: GameAlbumProps) => {
             <Image
                 src={src}
                 alt={name}
-                width={0}
-                height={0}
-                sizes='(max-width: 868px) 50vw,(max-width: 1157px) 33vw, (max-width: 1280px) 25vw, 70vw'
+                width={450}
+                height={258}
                 loading='lazy'
             />
             <span>{name}</span>
@@ -42,6 +43,23 @@ const AlbumModel = ({ src, name }: GameAlbumProps) => {
                     alt={name}
                     width={150}
                     height={150}
+                    loading='lazy'
+                />
+                <span>{name}</span>
+            </div>
+        </Suspense>
+    )
+}
+
+const JudokaModel = ({ src, name }: JudokaImageProps) => {
+    return (
+        <Suspense fallback={<div className={styles.loadingAlbum}><span /></div>}>
+            <div className={styles.judokaModel}>
+                <Image
+                    src={src}
+                    alt={name}
+                    width={400}
+                    height={561.04}
                     loading='lazy'
                 />
                 <span>{name}</span>
@@ -196,7 +214,9 @@ export function ScreenSaver({ timeout } : ScreenSaverProps) {
                         <p>{translations['home.screensaver.gamesText']}</p>
 
                         <div className={styles.gamesGrid}>
-                            {GamesContent.map((game, index) => (
+                            {GamesContent
+                            .sort((a, b) => a.name.localeCompare(b.name))
+                            .map((game, index) => (
                                 <GameModel
                                     key={index}
                                     {...game}
@@ -209,11 +229,29 @@ export function ScreenSaver({ timeout } : ScreenSaverProps) {
                         <p>{translations['home.screensaver.albumsText']}</p>
 
                         <div className={styles.albumsGrid}>
-                            {AlbumsContent.map((album, index) => (
+                            {AlbumsContent
+                            .sort((a, b) => a.name.localeCompare(b.name))
+                            .map((album, index) => (
                                 <AlbumModel
                                     key={index}
                                     {...album}
                                 />                                    
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className={styles.judokas}>
+                        <h3>Judocas</h3>
+                        <p>Pode parecer surpresa para muitas pessoas mas eu já fui praticante de judô, e ela ainda permanece como a minha arte marcial favorita pois além de nos ensinar a tática de auto-defesa e não-ataque, elas nos ensina a ter disciplina e respeito ao próximo, o que já faz parte da minha personalidade. <br /> <br/ > Veja a seguir alguns dos meus judocas favoritos do mundo, e que me inspiram ou inspiraram para que eu fizesse parte desse mundo tão sensacional!</p>
+
+                        <div className={styles.judokasGrid}>
+                            {JudokasContent
+                            .sort((a, b) => a.name.localeCompare(b.name))
+                            .map((judoka, index) => (
+                                <JudokaModel
+                                    key={index}
+                                    {...judoka}
+                                />
                             ))}
                         </div>
                     </div>

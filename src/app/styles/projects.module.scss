@@ -3,6 +3,8 @@
 .projectsSection {
     @include scroll-margin-top();
 
+    width: 100%;
+
     position: relative;
     background-image: url('../../../public/BackgroundImage.webp');
     background-position: center center;

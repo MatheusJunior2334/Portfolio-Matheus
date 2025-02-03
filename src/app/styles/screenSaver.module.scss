@@ -119,8 +119,8 @@
 
             p { @include text-primary(); white-space: pre-line; }
 
-            .games, .albums {
-                .gamesGrid, .albumsGrid {
+            .games, .albums, .judokas {
+                .gamesGrid, .albumsGrid, .judokasGrid {
                     display: grid;
                     gap: 10px;
                     justify-items: center;
@@ -134,7 +134,12 @@
                         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
                     }
 
-                    .gameModel, .albumModel {
+                    &.judokasGrid {
+                        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                    }
+
+                    .gameModel, .albumModel, .judokaModel {
+                        width: 100%;
                         position: relative;
                         display: flex;
                         align-items: center;
@@ -159,13 +164,9 @@
                         }
 
                         &:hover {
-                            img {
-                                filter: brightness(0.1);
-                            }
+                            img { filter: brightness(0.1); }
 
-                            span {
-                                opacity: 1;
-                            }
+                            span { opacity: 1; }
                         }
                     }
 
@@ -173,9 +174,7 @@
             }
 
             .conclusion {
-                p {
-                    padding-top: $marginSection;
-                }
+                p { padding-top: $marginSection; }
 
                 .closePage {
                     display: flex;
@@ -196,9 +195,7 @@
                         transition: all 0.3s;
                         cursor: pointer;
     
-                        &:hover {
-                            transform: scale(1.1);
-                        }
+                        &:hover { transform: scale(1.1); }
                     }
     
                     img { width: 80px; height: auto; }

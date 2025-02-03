@@ -28,7 +28,7 @@ export default function Home() {
         <Projects />
         <Contact />
         <ChangeLanguage />
-        <ScreenSaver timeout={5 * 60 * 1000} />
+        <ScreenSaver timeout={3 * 60 * 1000} />
       </MainLayout>
   )
 }
