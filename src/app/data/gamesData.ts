@@ -1,6 +1,6 @@
 import {
-    Castlevania, ChronoCross, ChronoTrigger, FatalFrame2, FF6, FF7, FF9, FireEmblem, GOW2, ICO, Metroid, NierAutomata,
-    TWDSeason1, TWDFinalSeason, Persona4, Persona5, RE2, SH2, SOTC, StarOcean2, TombRaider, VP2, Xenoblade, Xenogears, Zelda
+    Castlevania, Celeste, ChronoCross, ChronoTrigger, FatalFrame2, FF6, FF7, FF9, FireEmblem, GOW2, ICO, LiS, Metroid, NierAutomata,
+    TWDSeason1, TWDFinalSeason, Persona4, Persona5, RE2, RDR2, SH2, SOTC, StarOcean2, TombRaider, VP2, Xenoblade, Xenogears, Zelda
 } from '../../../public/assets/images/screen-saver/games/gamesImages';
 import { GameAlbumProps } from '../types/gameAlbum';
 
@@ -23,11 +23,14 @@ export const GamesContent: GameAlbumProps[] = [
     { src: SH2, name: 'Silent Hill 2' },
     { src: SOTC, name: 'Shadow of the Colossus' },
     { src: StarOcean2, name: 'Star Ocean - The Second Story' },
-    { src: TombRaider, name: 'Rise of the Tomb Raider' },
+    { src: TombRaider, name: 'Tomb Raider (2013)' },
     { src: VP2, name: 'Valkyrie Profile 2 - Silmeria' },
     { src: Xenoblade, name: 'Xenoblade Chronicles' },
     { src: Xenogears, name: 'Xenogears' },
     { src: Zelda, name: 'The Legend of Zelda - Tears of the Kingdom' },
     { src: TWDSeason1, name: 'The Walking Dead Telltale - Season 1' },
-    { src: TWDFinalSeason, name: 'The Walking Dead Telltale - The Final Season' }
+    { src: TWDFinalSeason, name: 'The Walking Dead Telltale - The Final Season' },
+    { src: Celeste, name: 'Celeste' },
+    { src: RDR2, name: 'Red Dead Redemption II' },
+    { src: LiS, name: 'Life Is Strange' }
 ]
